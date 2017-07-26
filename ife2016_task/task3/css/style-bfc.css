@@ -1,0 +1,55 @@
+header nav{
+    margin-left: 20px;
+}
+header nav li{
+    display: inline-block;
+    margin-right: 20px;
+}
+nav li a.active{
+    color: red;
+}
+
+.container{
+    margin:20px;
+    border: #999;
+    background: #eeeeee;
+    overflow: hidden;
+    padding: 20px;
+}
+
+img{
+    height: 80px;
+    width: 80px;
+}
+
+.left-box,.center-box,.right-box{
+    border: 1px solid #999;
+    padding: 20px;
+    background: #fff;
+}
+
+.left-box{
+    float: left;
+
+    width: 158px;
+    margin-right: 20px;
+}
+.left-box img{
+    float: left;
+}
+.left-box h2{
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+.right-box{
+    float: right;
+    width: 78px;
+    margin-left: 20px;
+
+    text-align: center;
+}
+
+.center-box{
+    overflow: hidden;
+}
