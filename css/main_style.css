@@ -1269,6 +1269,10 @@ ul.navication li.home a:hover {
   color: #2980b9;
 }
 
+#toc {
+  display: none;
+}
+
 #toc.tocify {
   z-index: 999;
   height: 100vh;
@@ -1316,7 +1320,7 @@ ul.navication li.home a:hover {
 
 .tocify {
   display: inline-block;
-  width: 300px;
+  width: 24px;
   height: 100vh;
   /*display: none;*/
   transition: all .5s;
@@ -1326,7 +1330,7 @@ ul.navication li.home a:hover {
 .toc-text {
   position: absolute;
   top: 0;
-  left: 300px;
+  left: 24px;
   display: block;
   width: calc(100vh - 30px);
   height: 24px;
@@ -1340,17 +1344,17 @@ ul.navication li.home a:hover {
   background: #1c1d1e;
 }
 
-.tocify.hide {
-  width: 24px;
+.tocify.show {
+  width: 300px;
 }
 
-.tocify.hide .toc-text {
-  left: 24px;
+.tocify.show .toc-text {
+  left: 300px;
 }
 
 @media screen and (max-width: 1440px) {
   .tocify {
-    display: none;
+    display: none !important;
   }
 }
 
