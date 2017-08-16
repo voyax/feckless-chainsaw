@@ -1,11 +1,23 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>无题 - voya</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">无题</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-calendar"></i>2014年4月13日</li></ul></div></div><div class="article-content" style="max-width:700px"><p>我在晨光之中颂叹吟咏，为了衰朽在寒冷深夜里的梦想<br>我在晨曦之中疯癫欢唱，为了沉寂在寂静从前中的悲欢</p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>无题 - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div class="hide" id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">无题</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-calendar"></i>2014年4月13日</li></ul></div></div><div class="article-content" style="max-width:700px"><p>我在晨光之中颂叹吟咏，为了衰朽在寒冷深夜里的梦想<br>我在晨曦之中疯癫欢唱，为了沉寂在寂静从前中的悲欢</p>
 <p>自断大龙<br>自毁辛劳</p>
 <p>如果燃尽我的最后，还能带来我曾泼洒心血的地方的一线光辉，也是好事吧<br>我从火中归来，前路还是漫漫无际的长途<br>只有自己还在纠结吧。。。<br>又能怎么样呢<br>强笑、强笑，说无所谓的人，多数更在乎吧</p>
 <p>做不到，逃不了，挺不住，强笑</p>
 <a id="more"></a>
 <p>青年，要一直快乐啊！</p>
-</div><div class="article-meta" style="max-width:700px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/8863/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/38054/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
+</div><div class="article-meta" style="max-width:700px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/8863/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/38054/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script src="/js/jquery-1.8.3.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>var wrap = document.getElementById('wrap');
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

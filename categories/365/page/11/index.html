@@ -2,7 +2,19 @@
 <p>自断大龙<br>自毁辛劳</p>
 <p>如果燃尽我的最后，还能带来我曾泼洒心血的地方的一线光辉，也是好事吧<br>我从火中归来，前路还是漫漫无际的长途<br>只有自己还在纠结吧。。。<br>又能怎么样呢<br>强笑、强笑，说无所谓的人，多数更在乎吧</p>
 <p>做不到，逃不了，挺不住，强笑</p></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2014年4月5日</p><h4 class="title"><a href="/posts/36051/">我不会安慰人，只是希望你们好好的</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2014年3月26日</p><h4 class="title"><a href="/posts/31223/">一个小故事，挺感人的</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2014年3月25日</p><h4 class="title"><a href="/posts/50469/">谨以此文祭墓本学期第一次熬夜</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2014年3月25日</p><h4 class="title"><a href="/posts/4208/">视角</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="link"><a href="/categories/365/page/10/"><i class="icon icon-arror-left"></i></a></li><li class="current"><a>11</a></li><li class="link"><a href="/categories/365/page/12/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

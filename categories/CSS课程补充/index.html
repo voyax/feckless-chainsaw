@@ -6,7 +6,19 @@
 <blockquote>
 <p>这篇文章同时是《CSS内功心法》补充资料，感兴趣的同学可以查看完整的<a href="http://www.4guangnian.com/" target="_blank" rel="external">CSS课程</a></p>
 </blockquote></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>8 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS课程补充/">CSS课程补充</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

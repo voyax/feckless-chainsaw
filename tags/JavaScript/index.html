@@ -2,7 +2,19 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;</div><div class="line">        result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(i);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> functions = createFunctions();</div><div class="line"></div><div class="line">functions[<span class="number">2</span>](); <span class="comment">//10</span></div></pre></td></tr></table></figure>
 <p>上述代码输出结果为10。</p>
 <p>觉得理所应当或者有所疑惑都很正常，请继续往下看：<br></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>11 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">2016年1月11日</p><h4 class="title"><a href="/posts/12846/">函数表达式-JavaScript</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>5 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">2015年1月23日</p><h4 class="title"><a href="/posts/2636/">JS获取屏幕信息方法汇总</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">45</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

@@ -4,7 +4,19 @@
 <p>但是二面也就是终面完全和我想的不同，二面没有问html、css、js而是谈一些算法、网络等专业课的知识，问如何解决因网络延迟造成的过期请求，如何尽可能实现电子时钟的精确性……对于最后的这两个问题，我只能说呵呵了，当时心里就很不爽，你明知道我现在大三，网络都还没怎么学呢，你就偏偏拿这些东西考我，想赶人走就明说，何必故意让人难堪。很无奈的表明我不会后，面试官说，这些东西不在于学校老师教没教，很多人很早前自己就会把这些东西学得很熟。听完这句话，心里边真的很不爽，这不是故意为难我吗，在计算机这个行业，想难倒一个人太容易了……</p>
 <p>很郁闷地离开了阿里，在回学校的地铁上，反复想反复想，最后不得不承认还是自己实力不够强，不能怪别人。上了大学很长时间都是自我感觉良好，但其实你算个屁啊，你有踏踏实实地学习过吗，你有专专心心的研究某个东西而废寝忘食吗，自己以前做的那些，所有人都能做到，而现在的问题是，你又凭什么觉得比别人优秀！</p>
 <p>要相比别人强，你就得去做别人不愿意、不敢做的事，你就得比别人细心，比别人努力，而这些细节的地方往往都被我忽略掉了，从现在起，脚踏实地，静心好好学习，不要浮躁，一定要认真、专注，在大学最后一年半的时间里，好好加油，问心无愧！</p></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">45</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li><li class="link"><a href="/archives/2014/04/page/2/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

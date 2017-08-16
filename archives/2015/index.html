@@ -8,7 +8,19 @@
 <p>附上<a href="http://www.youtube.com/watch?v=i9MHigUZKEM =300" target="_blank" rel="external">教程视频地址</a></p>
 <p><em>免责声明：原创内容版权为上述链接<a href="http://www.youtube.com/watch?v=i9MHigUZKEM" target="_blank" rel="external">视频</a>原作者所有，此部分出现的任何错误、意见或观点仅代表原作者的意见。因为翻译问题而出现的错误，由译者自行承担。</em></p>
 <p><img src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture1.png" width="70%"></p></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">2015年7月14日</p><h4 class="title"><a href="/posts/27048/">有时候，我已不想说话</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2015年6月17日</p><h4 class="title"><a href="/posts/16107/">Hello World</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>2 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li><li class="link"><a href="/archives/2015/page/2/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

@@ -5,7 +5,19 @@
 </blockquote></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>31 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css-tutorial/">css-tutorial</a><span class="category-list-count">6</span></li></ul></li></ul></li><li> <p class="date">2017年6月15日</p><h4 class="title"><a href="/posts/61527/">全基因组测序是什么东西</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">2017年4月9日</p><h4 class="title"><a href="/posts/3216/">突然有一天，发现爷爷、奶奶真的老了</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2016年11月29日</p><h4 class="title"><a href="/posts/25763/">有些东西梦到了</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2016年11月1日</p><h4 class="title"><a href="/posts/24157/">TED 一个简单的方式戒掉坏习惯</a></h4><div class="excerpt"><blockquote>
 <p>安静、思考、放松，是一个非常享受的过程<br>  幸对清风皓月，苔茵展、云幕高张</p>
 </blockquote></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>10 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="link"><a href="/"><i class="icon icon-arror-left"></i></a></li><li class="current"><a>2</a></li><li class="link"><a href="/page/3/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

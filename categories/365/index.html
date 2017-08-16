@@ -3,7 +3,19 @@
 </blockquote></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>10 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2016年10月21日</p><h4 class="title"><a href="/posts/34811/">TED 说话的艺术</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>2 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li><li> <p class="date">2016年5月2日</p><h4 class="title"><a href="/posts/55105/">The best of best</a></h4><div class="excerpt"><p><img src="http://7fvhf8.com1.z0.glb.clouddn.com/blog_the_best.jpg" alt="the best"></p>
 <p>读书的时候，好像没什么是大不了的</p>
 <p>回到家，都会好<br></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/365/">365</a><span class="category-list-count">59</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li><li class="link"><a href="/categories/365/page/2/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>

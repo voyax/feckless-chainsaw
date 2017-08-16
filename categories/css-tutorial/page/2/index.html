@@ -3,7 +3,19 @@
 <blockquote>
 <p>如果你对HTML还不熟，建议先去W3school补充下<code>HTML</code>的知识，觉得OK了，看看我们的<a href="http://www.4guangnian.com/topic/你不应该的忽视的HTML知识点" target="_blank" rel="external">HTML专题</a>检测下自己的水平。</p>
 </blockquote></div><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>31 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css-tutorial/">css-tutorial</a><span class="category-list-count">6</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="link"><a href="/categories/css-tutorial/"><i class="icon icon-arror-left"></i></a></li><li class="current"><a>2</a></li></ul><div class="page-footer"><div class="bottom"><p class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
-
 window.onload = function () {
   wrap.className += ' done';
+  if(document.querySelector('#toc')){
+    $("#toc").tocify({
+      context: 'body',
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+
+    const toc = document.querySelector('.tocify');
+    function toggleToc(){
+      toc.classList.toggle('hide');
+    }
+    document.querySelector('.toc-text').addEventListener('mouseenter', toggleToc);
+  }
 }</script></body></html>
