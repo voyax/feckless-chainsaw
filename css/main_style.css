@@ -557,10 +557,6 @@ body {
   overflow-x: hidden;
 }
 
-.wrapper--article {
-  background: #f4f7fa;
-}
-
 .wrapper {
   position: relative;
   transition: all .25s;
@@ -601,6 +597,10 @@ body {
   transition-delay: .24s;
 }
 
+.wrapper--article {
+  background: #5e6166;
+}
+
 @media screen and (max-width: 1024px) {
   html,
   body {
@@ -612,79 +612,83 @@ body {
   position: relative;
 }
 .page-header .background {
-  width: 100%;
-  height: 550px;
-  background: black;
-  overflow: hidden;
   position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: black;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .page-header .background img {
-  display: block;
-  width: 1920px;
-  height: 800px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -960px;
+  display: block;
+  width: 1920px;
+  height: 800px;
   margin-top: -400px;
+  margin-left: -960px;
 }
 .page-header .author {
-  background: #ecf0f1;
-  text-align: center;
   padding: 0 20px 30px 20px;
+  text-align: center;
+  background: #fffcf6;
 }
 .page-header .author .head {
+  position: relative;
+  top: -68px;
   display: inline-block;
   width: 130px;
   height: 130px;
-  border-radius: 50%;
   padding: 3px;
+  transition: all .4s;
+  transform: translateY(-20px);
+  opacity: 0;
+  border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 5px #95a5a6;
-  position: relative;
-  top: -68px;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.4s;
 }
 .page-header .author .head img {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
   border-radius: 50%;
 }
-.page-header .author .name, .page-header .author .signature {
+.page-header .author .name,
+.page-header .author .signature {
   position: relative;
   margin: 0;
-  opacity: 0;
+  transition: all .4s;
   transform: translateY(-20px);
-  transition: all 0.4s;
+  opacity: 0;
 }
 .page-header .author .name {
+  top: -50px;
   font-size: 1.3rem;
   color: #2c3e50;
-  top: -50px;
 }
 .page-header .author .signature {
+  top: -35px;
   font-size: .95rem;
   color: #7f8c8d;
-  top: -35px;
 }
 
 @media screen and (max-width: 1440px) {
   .page-header .background {
-    height: 450px;
+    height: 250px;
   }
 }
 @media screen and (max-width: 1024px) {
   .page-header .background {
-    height: 350px;
+    height: 150px;
   }
   .page-header .background img {
     width: 1200px;
     height: 500px;
-    margin-left: -600px;
     margin-top: -250px;
+    margin-left: -600px;
   }
 }
 .post-header {
