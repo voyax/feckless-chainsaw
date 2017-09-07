@@ -1274,7 +1274,7 @@ ul.navication li.home a:hover {
 }
 
 #toc.tocify {
-  z-index: 999;
+  z-index: 9999;
   height: 100vh;
   max-height: 100vh !important;
   padding-top: 20px;
@@ -1352,7 +1352,7 @@ ul.navication li.home a:hover {
   left: 300px;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .tocify {
     display: none !important;
   }
