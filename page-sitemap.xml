@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.voyax.me</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/tags/</loc>
+        <lastmod>2017-08-18T03:28:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/CSS-Tutorial/</loc>
+        <lastmod>2017-07-26T06:59:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/Tutorial/</loc>
+        <lastmod>2017-07-26T06:59:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/categories/index-1.html</loc>
+        <lastmod>2017-07-26T06:58:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/about/</loc>
+        <lastmod>2017-06-16T09:05:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/%E5%9C%A8%E7%BA%BF%E7%95%99%E8%A8%80/</loc>
+        <lastmod>2017-06-16T09:05:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/%E6%96%87%E7%AB%A0%E5%BD%92%E6%A1%A3/</loc>
+        <lastmod>2017-06-16T09:05:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/categories/</loc>
+        <lastmod>2016-08-12T12:59:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task10/</loc>
+        <lastmod>2016-05-16T16:09:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task10/README.html</loc>
+        <lastmod>2016-05-16T16:09:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task8/</loc>
+        <lastmod>2016-05-14T14:04:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task7/</loc>
+        <lastmod>2016-05-03T03:45:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task7/README.html</loc>
+        <lastmod>2016-05-03T02:33:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task6/</loc>
+        <lastmod>2016-05-01T04:40:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task5/</loc>
+        <lastmod>2016-04-22T09:08:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task4/README.html</loc>
+        <lastmod>2016-04-20T16:08:21.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task4/</loc>
+        <lastmod>2016-04-20T15:51:37.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task3/index-nmargin.html</loc>
+        <lastmod>2016-04-17T14:24:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task3/</loc>
+        <lastmod>2016-04-17T14:23:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task3/README.html</loc>
+        <lastmod>2016-03-21T15:29:35.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task2/</loc>
+        <lastmod>2016-03-20T13:15:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/ife2016_task/task1/</loc>
+        <lastmod>2016-03-19T06:56:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/search/</loc>
+        <lastmod>2015-08-14T10:58:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
