@@ -16,14 +16,14 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/365/</loc>
+        <loc>http://www.voyax.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
+        <loc>http://www.voyax.me/tags/365/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -44,7 +44,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/JavaScript/</loc>
+        <loc>http://www.voyax.me/tags/%E5%89%8D%E7%AB%AF/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -52,13 +52,6 @@
 
     <url>
         <loc>http://www.voyax.me/tags/%E4%BA%BA%E5%A4%A7%E9%87%91%E8%9E%8D/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/tags/%E5%89%8D%E7%AB%AF/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -79,7 +72,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/mongodb/</loc>
+        <loc>http://www.voyax.me/tags/JavaScript/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -87,6 +80,13 @@
 
     <url>
         <loc>http://www.voyax.me/tags/Mac/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/tags/mongodb/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -121,7 +121,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/%E6%B1%87%E7%BC%96/</loc>
+        <loc>http://www.voyax.me/tags/Matlab/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -135,7 +135,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/Matlab/</loc>
+        <loc>http://www.voyax.me/tags/%E6%B1%87%E7%BC%96/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -184,14 +184,14 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/%E8%AE%BE%E8%AE%A1/</loc>
+        <loc>http://www.voyax.me/tags/JAVA/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.voyax.me/tags/JAVA/</loc>
+        <loc>http://www.voyax.me/tags/%E8%AE%BE%E8%AE%A1/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -220,7 +220,7 @@
 
     <url>
         <loc>http://www.voyax.me/tags/React/</loc>
-        <lastmod>2017-09-25T14:48:03.000Z</lastmod>
+        <lastmod>2017-09-26T00:56:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
