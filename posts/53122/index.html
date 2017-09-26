@@ -1,30 +1,30 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>60分钟搞定AngularJS——Introduction - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" data-src="http://oe54phg1r.bkt.clouddn.com/blog/2017-08-16-adam-whitlock-270558.jpg"><div class="post-title"><h1 class="title">60分钟搞定AngularJS——Introduction</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-calendar"></i>2015年8月1日</li></ul></div></div><div class="article-content" style="max-width:700px"><p><em>翻译：<a href="mailto:1058522407@qq.com" target="_blank" rel="external">Eleven</a> <a href="mailto:lhyunweb@gmail.com" target="_blank" rel="external">voya</a></em></p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>60分钟搞定AngularJS——Introduction - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://oe54phg1r.bkt.clouddn.com/blog/2017-08-16-adam-whitlock-270558.jpg"><div class="post-title"><h1 class="title">60分钟搞定AngularJS——Introduction</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-calendar"></i>2015年8月1日</li></ul></div></div><div class="article-content" style="max-width:700px"><p><em>翻译：<a href="mailto:1058522407@qq.com" target="_blank" rel="external">Eleven</a> <a href="mailto:lhyunweb@gmail.com" target="_blank" rel="external">voya</a></em></p>
 <p>你是否早已耳闻<strong>AngularJS</strong>，确不知道该如何着手学习？我想这个视频正是为你准备的。</p>
 <p><strong>《AngularJS Fundamentals in 60-ish Minutes》</strong>将会介绍所有你应该掌握的这个单页应用框架——AngularJS的关键基础知识。</p>
 <p>附上<a href="http://www.youtube.com/watch?v=i9MHigUZKEM =300" target="_blank" rel="external">教程视频地址</a></p>
 <p><em>免责声明：原创内容版权为上述链接<a href="http://www.youtube.com/watch?v=i9MHigUZKEM" target="_blank" rel="external">视频</a>原作者所有，此部分出现的任何错误、意见或观点仅代表原作者的意见。因为翻译问题而出现的错误，由译者自行承担。</em></p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture1.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture1.png"></p>
 <a id="more"></a>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h3><p>姓名：<strong>Dan Wahlin</strong>, 乐于帮助大家从最基础的原理角度解决关键问题。<br>我的博客地址：<a href="http://weblogs.asp.net/dwahlin" target="_blank" rel="external">http://weblogs.asp.net/dwahlin</a>，如果你也玩儿Twitter，可以关注@danwahlin，我们可以方便的在Twitter上交流学习。</p>
 <hr>
 <h3 id="AngularJS"><a href="#AngularJS" class="headerlink" title="AngularJS"></a>AngularJS</h3><p>话不多说，正式开始学习AngularJS吧</p>
 <p>Hi !，你可以在<a href="http://tinyurl.com/AngularJSDemos" target="_blank" rel="external">http://tinyurl.com/AngularJSDemos</a>上找到本教程中的所有<strong>源代码</strong><br>我将从一些简单的实例开始，循序渐进，逐渐深入，最后我将帮大家把这些所有内容串联起来。<br>我并不认为通过短短60分钟的学习，你就可以掌握开发一个商业APP的所有知识，但是我想你已经可以采用AngularJS开发这样的APP。<br>如果你只是一个对AngularJS完全不了解的新手，你可以从<a href="http://angularjs.org" target="_blank" rel="external">AngularJS官网</a>获取AngularJS的所有东西，官网提供了全面的文档、演示和教材——所有的这些东西都非常有趣。<br>对单页应用最初的印象是，大量繁琐的脚本，实在是太混乱了。但是AngularJS的出现，让我兴奋不已，正如你将看到的，AngularJS非常适合写单页应用。</p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture2.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture2.png"></p>
 <p>AngularJS让我感到一些陌生。而且越深入，在某些东西让人更加困惑。</p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture3.png"></p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture4.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture3.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture4.png"></p>
 <p><strong>“transclusion”、“scope”、”directive”</strong>这些都是什么鬼？<br>事实上，我并不确定transclusion是不是一个有实际意义的词，很遗憾竟然真的是！<br>现在我甚至有点喜欢这个词了😄</p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture5.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture5.png"></p>
 <p>从90年代开始，我就用Javascript开发了，通常情况下我对事物都上手很快。但是，当接触到AngularJS的时候，我差点到了痛哭流涕的地步，不得不说，“好吧，也许我确实有那么一点智商不够”。后来才发现，其实我只是没有理解AngularJS的思维模式，不知道如果着手学习AngularJS而已。</p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture6.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture6.png"></p>
 <p>每当回过头来看，心平气和地告诉自己，“嘿，这其实也没有那么难”的时候，我就变得冷静一些了，而且意识到：哇，这真是神奇了。</p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture7.png"></p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture8.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture7.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture8.png"></p>
 <p>在我看来，AngularJS是一个令人敬畏的框架，有时给人昏天黑地的感觉……但是一旦将所有的知识结构都联系在一起，又会与一种恍然大悟之感。<br>就像学习其他东西一样，在学习新框架时，有时候你能够立刻掌握，有时却无能为力。<br>认识到这一点，我意识到我的问题并不是没有花时间学习，而是没有花时间去研究这些零散的知识碎片之间的关系，总是零零散散东学一点西学一点。<br>通过这个视频，我将向大家讲解有关AngularJS的所有关键知识，不必像我当年那样痛苦，希望这个教程可以助大家一臂之力。</p>
-<p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture9.png"></p>
+<p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture9.png"></p>
 <p>一旦你坚持下来，你将会像这个小孩一样拥有SuperPowers!<br>也许不是超能“力”，但至少在单页应用上是超强的。</p>
 <hr>
-<h3 id="本教程安排"><a href="#本教程安排" class="headerlink" title="本教程安排"></a>本教程安排</h3><p><img width="70%" data-src="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture10.png"></p>
+<h3 id="本教程安排"><a href="#本教程安排" class="headerlink" title="本教程安排"></a>本教程安排</h3><p><img width="70%" data-original="http://7fvhf8.com1.z0.glb.clouddn.com/Angularjs60Picture10.png"></p>
 <p>我们将从AngularJS的关键特性开始，同时会给大家介绍在没有良好的组织架构下编写单页应用会遇到的各种麻烦。</p>
 <p>任何认识我的人都知道，我不建议不采用框架就开始开发。对我来说，考虑到后期的维护，这无疑是一噩梦。</p>
 <p>各种脚本、版本依赖、脚本改动 以及 things breaking(这个怎么翻！)</p>
@@ -35,12 +35,9 @@
 <p>掌握<strong>Directives，Filters和Data Binding</strong>后，我们将谈论<strong>视图（View）、控制器(Controller)以及作用域（Scope）</strong>。</p>
 <p>然后，我们将学习Modules，讲解如何将其他部分绑定到modules。进一步，介绍SPA（单页应用）的相关概念，例如，<strong>Routes（路由）</strong>、负责数据的<strong>Factories（仓库）</strong>。</p>
 </div><div class="article-meta" style="max-width:700px"><div class="tags"><i class="icon icon-tag"></i><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">3</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/19847/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/27048/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('c 4=0.p("4");8.9=5(){4.i+=" o";6(0.2("#1")){$("#1").3({d:"e",f:"g,h,7,j",k:l,}).m("1-3");n b=0.2("#1");5 a(){b.q.r("s")}0.2(".1-t").u("v",a);6(0.2(".3-w")){b.x.y="z"}}};',36,36,'document|toc|querySelector|tocify|wrap|function|if|h4|window|onload|||var|context|body|selectors|h2|h3|className|h5|extendPage|false|data|const|done|getElementById|classList|toggle|show|text|addEventListener|mouseenter|header|style|display|block'.split('|'),0,{}))
-$(function() {  
-//对所有 img 标签进行懒加载        
-$("img").lazyload({
-//设置占位图，我这里选用了一个 loading 的加载动画
-  placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
-  //加载效果
-    effect:"fadeIn"
+$(function() {
+$(".post-list img, .article-content img").lazyload({
+  placeholder: "http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
+    effect: "fadeIn"
   });
 });</script></body></html>
