@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/3bcac801/</loc>
+        <lastmod>2017-09-26T04:53:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/45ab96e1/</loc>
         <lastmod>2017-09-26T00:56:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -41,14 +49,6 @@
     <url>
         <loc>http://www.voyax.me/posts/5a12aef0/</loc>
         <lastmod>2017-09-18T06:07:48.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/3bcac801/</loc>
-        <lastmod>2017-09-11T11:37:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -167,14 +167,6 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/34363/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.voyax.me/posts/21769/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -199,7 +191,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/972/</loc>
+        <loc>http://www.voyax.me/posts/22260/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -208,14 +200,6 @@
 
     <url>
         <loc>http://www.voyax.me/posts/51740/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/22260/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -239,7 +223,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/65148/</loc>
+        <loc>http://www.voyax.me/posts/34363/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -247,7 +231,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/11649/</loc>
+        <loc>http://www.voyax.me/posts/65148/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -263,23 +247,15 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/11649/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/32156/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/12433/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/32157/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -303,7 +279,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/1271/</loc>
+        <loc>http://www.voyax.me/posts/972/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -319,23 +295,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/46272/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/31223/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/10484/</loc>
+        <loc>http://www.voyax.me/posts/1271/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -351,7 +311,31 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/10484/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/17218/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/31223/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/46272/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -447,6 +431,14 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/46893/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/10229/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -455,7 +447,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/46893/</loc>
+        <loc>http://www.voyax.me/posts/32157/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -471,7 +463,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/56926/</loc>
+        <loc>http://www.voyax.me/posts/12433/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -480,14 +472,6 @@
 
     <url>
         <loc>http://www.voyax.me/posts/55480/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/41792/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -511,6 +495,22 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/56926/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/41792/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/45363/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -519,7 +519,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/40067/</loc>
+        <loc>http://www.voyax.me/posts/30093/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -527,7 +527,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/30093/</loc>
+        <loc>http://www.voyax.me/posts/40067/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -607,14 +607,6 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/36051/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.voyax.me/posts/49893/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -631,7 +623,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/47708/</loc>
+        <loc>http://www.voyax.me/posts/36051/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -640,6 +632,14 @@
 
     <url>
         <loc>http://www.voyax.me/posts/58858/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/47708/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -656,14 +656,6 @@
 
     <url>
         <loc>http://www.voyax.me/posts/13406/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/47237/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -711,6 +703,14 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/47237/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/51411/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -720,22 +720,6 @@
 
     <url>
         <loc>http://www.voyax.me/posts/41092/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/27865/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/57868/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -759,7 +743,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/55708/</loc>
+        <loc>http://www.voyax.me/posts/27865/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -767,7 +751,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/38510/</loc>
+        <loc>http://www.voyax.me/posts/57868/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -783,7 +767,15 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/46476/</loc>
+        <loc>http://www.voyax.me/posts/38510/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/55708/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -799,23 +791,15 @@
     </url>
 
     <url>
+        <loc>http://www.voyax.me/posts/46476/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.voyax.me/posts/4152/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/17386/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/37394/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -831,7 +815,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/21644/</loc>
+        <loc>http://www.voyax.me/posts/37394/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -839,7 +823,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/13118/</loc>
+        <loc>http://www.voyax.me/posts/17386/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -863,7 +847,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/10282/</loc>
+        <loc>http://www.voyax.me/posts/21644/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -871,7 +855,15 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/62788/</loc>
+        <loc>http://www.voyax.me/posts/13118/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/10282/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -895,7 +887,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/44803/</loc>
+        <loc>http://www.voyax.me/posts/62788/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -903,7 +895,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/16108/</loc>
+        <loc>http://www.voyax.me/posts/44803/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -927,14 +919,6 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/44858/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.voyax.me/posts/4911/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -943,7 +927,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/25802/</loc>
+        <loc>http://www.voyax.me/posts/16108/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -951,7 +935,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/14139/</loc>
+        <loc>http://www.voyax.me/posts/44858/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -975,7 +959,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/38054/</loc>
+        <loc>http://www.voyax.me/posts/25802/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -983,15 +967,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/13462/</loc>
-        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/29128/</loc>
+        <loc>http://www.voyax.me/posts/14139/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1007,7 +983,23 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/17164/</loc>
+        <loc>http://www.voyax.me/posts/29128/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/13462/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/38054/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1023,7 +1015,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/52520/</loc>
+        <loc>http://www.voyax.me/posts/17164/</loc>
         <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1031,8 +1023,8 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/22681/</loc>
-        <lastmod>2017-06-18T09:30:28.000Z</lastmod>
+        <loc>http://www.voyax.me/posts/52520/</loc>
+        <lastmod>2017-06-18T09:30:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1047,7 +1039,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/33896/</loc>
+        <loc>http://www.voyax.me/posts/22681/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1055,7 +1047,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/28350/</loc>
+        <loc>http://www.voyax.me/posts/33896/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1079,14 +1071,6 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/58856/</loc>
-        <lastmod>2017-06-18T09:30:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.voyax.me/posts/53122/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1095,7 +1079,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/58857/</loc>
+        <loc>http://www.voyax.me/posts/28350/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1111,7 +1095,15 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/19847/</loc>
+        <loc>http://www.voyax.me/posts/58856/</loc>
+        <lastmod>2017-06-18T09:30:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/58857/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1127,15 +1119,7 @@
     </url>
 
     <url>
-        <loc>http://www.voyax.me/posts/59710/</loc>
-        <lastmod>2017-06-18T09:30:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.voyax.me/posts/1758/</loc>
+        <loc>http://www.voyax.me/posts/19847/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1160,6 +1144,22 @@
 
     <url>
         <loc>http://www.voyax.me/posts/64885/</loc>
+        <lastmod>2017-06-18T09:30:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/1758/</loc>
+        <lastmod>2017-06-18T09:30:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.voyax.me/posts/59710/</loc>
         <lastmod>2017-06-18T09:30:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
