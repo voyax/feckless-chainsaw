@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>CSS第一课 你热了么 - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg"><div class="post-title"><h1 class="title">CSS第一课 你热了么</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>27 Minutes</li><li><i class="icon icon-calendar"></i>2017年7月26日</li></ul></div></div><div class="article-content" style="max-width:700px"><p>按照Sketch设计稿，实现一个完整的页面：</p>
-<p><img alt="" data-original="http://upload-images.jianshu.io/upload_images/2968570-be5bd3eb87eb8e96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p><img alt="" class="img-loading" data-original="http://upload-images.jianshu.io/upload_images/2968570-be5bd3eb87eb8e96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
 <p>希望你学完这一些列课程后，能够系统地掌握CSS，真正把CSS玩转</p>
 <a id="more"></a>
 <h2 id="Let’s-Go-Go-Go"><a href="#Let’s-Go-Go-Go" class="headerlink" title="Let’s Go Go Go"></a>Let’s Go Go Go</h2><p>首先下载素材文件（<a href="https://pan.baidu.com/s/1o8MvRF8" target="_blank" rel="external">Windows用户可以下载pdf版</a>）</p>
@@ -24,7 +24,7 @@
 <blockquote>
 <p>Normalize.css 只是一个很小的CSS文件，但它在默认的HTML元素样式上提供了跨浏览器的高度一致性。相比于传统的CSS reset，Normalize.css是一种现代的、为HTML5准备的优质替代方案。——<a href="http://jerryzou.com/posts/aboutNormalizeCss/" target="_blank" rel="external">来，让我们谈一谈 Normalize.css</a></p>
 </blockquote>
-<p><img alt="" data-original="http://ww3.sinaimg.cn/large/801b780agw1f8ipxsh4hcj20ku0alt8z.jpg"></p>
+<p><img alt="" class="img-loading" data-original="http://ww3.sinaimg.cn/large/801b780agw1f8ipxsh4hcj20ku0alt8z.jpg"></p>
 <h2 id="导航页面"><a href="#导航页面" class="headerlink" title="导航页面"></a>导航页面</h2><p>根据设计稿，我们把整个页面分为三个部分，头部、内容区域、页脚</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;header <span class="class"><span class="keyword">class</span> </span>= <span class="string">"site__header"</span>&gt;      </div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></div><div class="line">&lt;main <span class="class"><span class="keyword">class</span> </span>= <span class="string">"site__main"</span>&gt;      </div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span></div><div class="line">&lt;footer <span class="class"><span class="keyword">class</span> </span>= <span class="string">"site__footer"</span>&gt;</div><div class="line"> <span class="xml"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <p>用BEM作为CSS的命名规范，虽然<code>site__header</code>丑了点，但是在你代码越来越多的时候，这个东西可以让你的代码没那么混乱</p>
@@ -40,7 +40,7 @@
 <h3 id="完成导航"><a href="#完成导航" class="headerlink" title="完成导航"></a>完成导航</h3><p><code>HTML</code>结构</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"site__header"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar"</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar__brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Company Logo<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"navbar__nav list-nostyle"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Platform<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"active"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Sign Up<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line">  &lt;<span class="regexp">/header&gt;</span></div></pre></td></tr></table></figure>
 <p>运行<br><code>browser-sync start --server --files &#39;index.html&#39; --files &quot;css/*.css&quot;</code></p>
-<p><img alt="" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741682276835.jpg"></p>
+<p><img alt="" class="img-loading" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741682276835.jpg"></p>
 <p>好了，改点样式让它看来好看点</p>
 <ol>
 <li>给导航设置一个固定高度</li>
@@ -54,7 +54,7 @@
 <p><code>&lt;a&gt;</code>标签我们一般更习惯不要下划线，而是通过颜色来突出是链接，所以我们把<code>&lt;a&gt;</code>标签的下划线统一去掉：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span>&#123;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>现在你看到的应该是这样：</p>
-<p><img alt="" data-original="http://ww1.sinaimg.cn/large/006y8lVagw1f8isxqm5b2j31kw0clgmd.jpg"></p>
+<p><img alt="" class="img-loading" data-original="http://ww1.sinaimg.cn/large/006y8lVagw1f8isxqm5b2j31kw0clgmd.jpg"></p>
 <p><strong>inline-block空格的问题</strong></p>
 <p>现在回去看看，有个问题需要处理一下：</p>
 <p><code>PlatForm</code>，<code>About</code>，<code>Sign Up</code>之间为什么会有间隙？**</p>
@@ -79,13 +79,13 @@
 <li><p>设置<code>box-sizing</code>为<code>border-box</code></p>
 <p>  默认情况下，元素的height只包括内容区域。但是我们经常需要加入border或者padding，元素的高度的实际高度是<code>padding + border + height</code>，每次你都需要减去<code>padding</code>和<code>border</code>。除了计算麻烦之外，用<strong>百分比</strong>设置高度的时候，你经常会遇到<strong>内容区域溢出</strong>的问题：</p>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">    <span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">      <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.container</span>&#123;</div><div class="line">      <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">20px</span>;</div><div class="line">    &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    Hello World</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>  <img alt="" data-original="![](http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741908482970.jpg"></p>
+<p>  <img alt="" class="img-loading" data-original="![](http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741908482970.jpg"></p>
 </li>
 <li><p>通过<code>line-height</code>进行垂直居中：<br>  css中水平居中很简单，但是垂直居中就不好做了。通过设置line-height等于<code>height</code>可以让文字垂直居中。关于居中的问题，参考<a href="http://www.voyax.me/2016/04/19/译-CSS居中完全指南/">[译]CSS居中完全指南</a>：<a href="http://www.voyax.me/2016/04/19/译-CSS居中完全指南/">http://www.voyax.me/2016/04/19/译-CSS居中完全指南/</a></p>
 <p>  最后还有一个大坑！！！</p>
 </li>
 </ul>
-<p><img alt="" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741913817064.jpg"></p>
+<p><img alt="" class="img-loading" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741913817064.jpg"></p>
 <p>为啥navbar高度没有撑开！！！好吧，都是<code>float</code>的错，<code>float</code>导致元素溢出了文档流，从而父元素的高度不会随着<code>float</code>元素高度的变化而适应。<br>单从float的角度说，有两个思路：</p>
 <ol>
 <li>将父元素变成<a href="http://www.voyax.me/2016/04/11/谈谈BFC/">BFC</a></li>
@@ -97,5 +97,31 @@
 <p><code>clearfix</code>（关于clearfix的讨论，看看stackoverflow上的<a href="http://stackoverflow.com/questions/8554043/what-is-a-clearfix" target="_blank" rel="external">这个讨论</a>）</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">   <span class="attribute">content</span>: <span class="string">" "</span>; <span class="comment">/* Older browser do not support empty content */</span></div><div class="line">   <span class="attribute">visibility</span>: hidden;</div><div class="line">   <span class="attribute">display</span>: block;</div><div class="line">   <span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line">   <span class="attribute">clear</span>: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这一章主要带着你踩踩坑，介绍了几个开发中经常遇到的问题。下一张我们看看在实际开发中，如果从零开始组织你的代码，同时逐步完成这个页面。</p>
-</div><div class="article-meta" style="max-width:700px"><div class="tags"><i class="icon icon-tag"></i><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">13</span></li></ul></div><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css-tutorial/">css-tutorial</a><span class="category-list-count">6</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/3bcac801/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/4972c060/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('c 4=0.p("4");8.9=5(){4.i+=" o";6(0.2("#1")){$("#1").3({d:"e",f:"g,h,7,j",k:l,}).m("1-3");n b=0.2("#1");5 a(){b.q.r("s")}0.2(".1-t").u("v",a);6(0.2(".3-w")){b.x.y="z"}}};',36,36,'document|toc|querySelector|tocify|wrap|function|if|h4|window|onload|||var|context|body|selectors|h2|h3|className|h5|extendPage|false|data|const|done|getElementById|classList|toggle|show|text|addEventListener|mouseenter|header|style|display|block'.split('|'),0,{}))
-$(function(){$(".post-list img, .article-content img").lazyload({placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",effect:"fadeIn"})});</script></body></html>
+</div><div class="article-meta" style="max-width:700px"><div class="tags"><i class="icon icon-tag"></i><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">13</span></li></ul></div><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css-tutorial/">css-tutorial</a><span class="category-list-count">6</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/3bcac801/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/4972c060/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>$(function(){
+  var wrap = document.getElementById("wrap");
+  wrap.className += " done";
+  if (document.querySelector("#toc")) {
+    $("#toc").tocify({
+      context: "body",
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+    const b = document.querySelector("#toc");
+
+    function a() {
+      b.classList.toggle("show")
+    }
+
+    document.querySelector(".toc-text").addEventListener("mouseenter", a);
+    if (document.querySelector(".tocify-header")) {
+      b.style.display = "block"
+    }
+  }
+  $(".post-list img, .article-content img").lazyload({
+    placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
+    effect:"fadeIn",
+    load : function(elements_left, settings) {
+      $(this).removeClass("img-loading");
+    }
+  });
+});</script></body></html>

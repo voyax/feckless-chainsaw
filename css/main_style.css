@@ -621,6 +621,11 @@ body {
   background: #5e6166;
 }
 
+.img-loading {
+  display: block;
+  margin: 15px auto !important;
+}
+
 @media screen and (max-width: 1024px) {
   html,
   body {

@@ -62,10 +62,10 @@ opkg install luci-app-shadowsocks-spec_x.x.x-x_all.ipk
 
 <h2 id="二、shadowsocks-配置"><a href="#二、shadowsocks-配置" class="headerlink" title="二、shadowsocks 配置"></a>二、shadowsocks 配置</h2><p>我们登陆Luci，指向“服务”，此时应该能够看到shadowsocks和chinadns了。</p>
 <p>点击shadowsocks，取消勾选“使用配置文件”，新的选项就出来了，我们把服务器信息填进去，代理方式选择“忽略列表”，然后先把下面UDP转发功能关闭，然后保存并应用（选项不要留空）。服务器地址请尽量填入IP，否则容易出问题！ 全部完成后，刷新页面，确保shadowsocks是已启动状态。否则请检查配置。</p>
-<p>[caption id=”” align=”alignnone” width=”345”]<img alt="shadowsocks" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksshadowsocks.png"> shadowsocks[/caption]</p>
-<p><img alt="shadowsocks" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocks2.png"></p>
+<p>[caption id=”” align=”alignnone” width=”345”]<img alt="shadowsocks" class="img-loading" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksshadowsocks.png"> shadowsocks[/caption]</p>
+<p><img alt="shadowsocks" class="img-loading" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocks2.png"></p>
 <p>当然，你可以继续使用 config.json 进行配置，格式如下：</p>
-<p><pre>{<br>      “server”: “X.X.X.X”,<br>      “server_port”: “443”,<br>      “password”: “password”,<br>      “local_port”: “1080”,<br>      “method”: “rc4-md5”<br>}<br></pre><br>最后记得在Luci里面填把“使用配置文件”勾上，然后填写配置文件位置（不要留空）：<br><img alt="config" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksconfig.png"><br>然后看一下ChinaDNS的配置界面，此时可以先按照默认的配置来，确保ChinaDNS可以正常启动，也可以参考下面：<br><img alt="method3" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksmethod3.png"><br>做出说明：</p>
+<p><pre>{<br>      “server”: “X.X.X.X”,<br>      “server_port”: “443”,<br>      “password”: “password”,<br>      “local_port”: “1080”,<br>      “method”: “rc4-md5”<br>}<br></pre><br>最后记得在Luci里面填把“使用配置文件”勾上，然后填写配置文件位置（不要留空）：<br><img alt="config" class="img-loading" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksconfig.png"><br>然后看一下ChinaDNS的配置界面，此时可以先按照默认的配置来，确保ChinaDNS可以正常启动，也可以参考下面：<br><img alt="method3" class="img-loading" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksmethod3.png"><br>做出说明：</p>
 <blockquote>
 <p>ChinaDNS参数说明:</p>
 <p>1、虚假IP列表：默认值：/etc/chinadns_iplist.txt</p>
@@ -81,10 +81,10 @@ opkg install luci-app-shadowsocks-spec_x.x.x-x_all.ipk
 <p>5、双向过滤： 默认：勾选</p>
 <p><em>    </em> 勾选时，当国外DNS服务器返回的查询结果是国内IP，或者当国内DNS服务器返回的查询结果是国外IP，则过滤掉这个结果（较为严格的模式）；去掉勾选的话只是过滤国内DNS的国外IP结果。</p>
 <p>6、启用压缩指针： 默认：不勾选</p>
-<p>利用GFW遇到压缩指针时的一个bug来精确识别来自GFW的抢答污染，从而极大提高识别的准确性和识别的效率，推荐启用，启用后，IPList和等待时间将禁用（因为用不到了）。<br>然后，在Luci中切换至“网络”-“DHCP/DNS”设置，如下图，在”DNS转发”中填入127.0.0.1#5353<br><img alt="dnsforwarder" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksdnsforwarder.png"></p>
+<p>利用GFW遇到压缩指针时的一个bug来精确识别来自GFW的抢答污染，从而极大提高识别的准确性和识别的效率，推荐启用，启用后，IPList和等待时间将禁用（因为用不到了）。<br>然后，在Luci中切换至“网络”-“DHCP/DNS”设置，如下图，在”DNS转发”中填入127.0.0.1#5353<br><img alt="dnsforwarder" class="img-loading" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocksdnsforwarder.png"></p>
 </blockquote>
 <p>其中，5353是ChinaDNS的端口，如果你在之前设置界面里改了，这里记得别填错。</p>
-<p>然后切到HOSTS和解析文件选项卡，勾中“忽略解析文件”<br><img alt="" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocks4-e1419669478169.png"></p>
+<p>然后切到HOSTS和解析文件选项卡，勾中“忽略解析文件”<br><img alt="" class="img-loading" data-original="http://lhyun-wordpress.qiniudn.com/shadowsocks4-e1419669478169.png"></p>
 <p>接下来的步骤会有区别，通过ChinaDNS进行防DNS污染及解析结果优化，方案有三：</p>
 <p>1、对于shadowsocks是用自己服务器搭建的，推荐方案一，在自己服务器上搭建DNS服务；</p>
 <p>2、如果没有这个条件，但服务器支持UDP转发（较新版本Shadowsocks均支持），那么方案二；</p>
@@ -96,27 +96,27 @@ opkg install luci-app-shadowsocks-spec_x.x.x-x_all.ipk
 <p>在代理服务器上搭建DNS服务来解析国外网站，可用dnsmasq或者pdnsd，监听非53端口。</p>
 <p>比如说服务器IP是：3.4.5.6，dns服务端口是5050，那么，把ChinaDNS的上游服务器更改为：</p>
 <p>114.114.114.114,3.4.5.6:5050，等待时间改为0.1秒（视VPS延迟酌情增加）；有些ISP使用114DNS可能效果不佳，此时可以将114DNS换成本地ISP的；</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method12.png" target="_blank" rel="external"><img alt="method12" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method12.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method12.png" target="_blank" rel="external"><img alt="method12" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method12.png"></a></p>
 <p>也可以勾选“启用压缩指针”，这样就无需延迟时间了：</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method11.png" target="_blank" rel="external"><img alt="method11" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method11.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method11.png" target="_blank" rel="external"><img alt="method11" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method11.png"></a></p>
 <p>最后，确保shadowsocks的设置页面里面的UDP转发是关闭状态。保存并应用，确认shadowsocks和chinadns都显示已启动后，就可以测试一下了~</p>
 </blockquote>
 <h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><blockquote>
 <p>使用shadowsocks代理DNS请求。首先开启shadowsocks的DNS转发，并确保端口号不和ChinaDNS的一样，比如说我们改成5151；转发地址留默认的GoogleDNS即可，你也可以自行更改，格式是“IP:端口”。</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/5-e1416031768327.png" target="_blank" rel="external"><img alt="方案二" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/5-e1416031768327.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/5-e1416031768327.png" target="_blank" rel="external"><img alt="方案二" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/5-e1416031768327.png"></a></p>
 <p>然后配置ChinaDNS的上游DNS服务器为： 114.114.114.114,127.0.0.1:5151，等待时间填0.1（视VPS延迟酌情增加），其他酌情填写；有些ISP使用114DNS可能效果不佳，此时可以将114DNS换成本地ISP的：</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method22.png" target="_blank" rel="external"><img alt="method22" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method22.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method22.png" target="_blank" rel="external"><img alt="method22" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method22.png"></a></p>
 <p>也可以勾选“启用压缩指针”，这样就无需延迟时间了：</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method21.png" target="_blank" rel="external"><img alt="method21" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method21.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method21.png" target="_blank" rel="external"><img alt="method21" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method21.png"></a></p>
 <p>保存并应用，确认shadowsocks和chinadns都显示已启动后，Enjoy~</p>
 </blockquote>
 <h3 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h3><blockquote>
 <p>首先确保shadowsocks配置页面的UDP转发关闭；并且确保你可以正常使用国外公共DNS服务。</p>
 <p>切换至ChinaDNS界面，填入上游服务器地址，可以保留默认的114.114.114.114,8.8.4.4</p>
 <p>勾选“启用压缩指针”：</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method31.png" target="_blank" rel="external"><img alt="method31" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method31.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method31.png" target="_blank" rel="external"><img alt="method31" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method31.png"></a></p>
 <p>或者不勾选“启用压缩指针”，但要酌情填写延迟时间，默认0.3秒（视VPS延迟酌情增加或减小）：</p>
-<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method3-1.png" target="_blank" rel="external"><img alt="method3 (1)" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method3-1.png"></a></p>
+<p><a href="http://www.lhyum.com/wp-content/uploads/2015/03/method3-1.png" target="_blank" rel="external"><img alt="method3 (1)" class="img-loading" data-original="http://www.lhyum.com/wp-content/uploads/2015/03/method3-1.png"></a></p>
 <p>双向过滤可以打开；有些ISP使用114DNS可能效果不佳，此时可以将114DNS换成本地ISP的。</p>
 <p>确认shadowsocks和chinadns都显示已启动后，Enjoy~<br>所有的步骤完成后，可以尝试一些额外的步骤，比如：</p>
 </blockquote>
@@ -128,5 +128,31 @@ opkg install luci-app-shadowsocks-spec_x.x.x-x_all.ipk
 <p>PS2：ChinaDNS的 chinadns_chnroute.txt 和shadowsocks的 ignore.list 其实是重复的，此时你只需把luci配置界面里面ChinaDNS的chnroute改成 /etc/shadowsocks/ignore.list 就行了， chinadns_chnroute.txt 也就可以删除了，这样一来省点空间，而且免去要同时更新两个文件的麻烦。</p>
 <p>PS3：如遇到别的被墙站点没问题但YouTube, Facebook, Twitter打不开，应该是DNS污染造成，请用dig命令排查，并尝试更换DNS转发方案。方案一和方案二可以配合这个dnsmasq配置文件使用效果更佳：dnsmasq_list.conf ，具体用法我就不详细说了，总之去掉ipset=/…/…的行，然后把127.0.0.1#5353改成你的相应地址。</p>
 <p>PS4：有些ISP会禁用外部DNS，只能用ISP的，此时不要使用114DNS等公共DNS而要使用ISP的DNS；有些ISP做了DNS劫持，可能会导致指针压缩失效；有些ISP封杀国外UDP端口，会造成三种方案全部失效，请考虑方案四。</p>
-</div><div class="article-meta" style="max-width:700px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">8</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/37394/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/54370/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('c 4=0.p("4");8.9=5(){4.i+=" o";6(0.2("#1")){$("#1").3({d:"e",f:"g,h,7,j",k:l,}).m("1-3");n b=0.2("#1");5 a(){b.q.r("s")}0.2(".1-t").u("v",a);6(0.2(".3-w")){b.x.y="z"}}};',36,36,'document|toc|querySelector|tocify|wrap|function|if|h4|window|onload|||var|context|body|selectors|h2|h3|className|h5|extendPage|false|data|const|done|getElementById|classList|toggle|show|text|addEventListener|mouseenter|header|style|display|block'.split('|'),0,{}))
-$(function(){$(".post-list img, .article-content img").lazyload({placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",effect:"fadeIn"})});</script></body></html>
+</div><div class="article-meta" style="max-width:700px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">8</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/37394/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/54370/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>$(function(){
+  var wrap = document.getElementById("wrap");
+  wrap.className += " done";
+  if (document.querySelector("#toc")) {
+    $("#toc").tocify({
+      context: "body",
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+    const b = document.querySelector("#toc");
+
+    function a() {
+      b.classList.toggle("show")
+    }
+
+    document.querySelector(".toc-text").addEventListener("mouseenter", a);
+    if (document.querySelector(".tocify-header")) {
+      b.style.display = "block"
+    }
+  }
+  $(".post-list img, .article-content img").lazyload({
+    placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
+    effect:"fadeIn",
+    load : function(elements_left, settings) {
+      $(this).removeClass("img-loading");
+    }
+  });
+});</script></body></html>

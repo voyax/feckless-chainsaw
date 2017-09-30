@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>反向代理 - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg"><div class="post-title"><h1 class="title">反向代理</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>2 Minutes</li><li><i class="icon icon-calendar"></i>2017年9月20日</li></ul></div></div><div class="article-content" style="max-width:700px"><p><img alt="" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-20-132210.jpg"></p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>反向代理 - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg"><div class="post-title"><h1 class="title">反向代理</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>2 Minutes</li><li><i class="icon icon-calendar"></i>2017年9月20日</li></ul></div></div><div class="article-content" style="max-width:700px"><p><img alt="" class="img-loading" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-20-132210.jpg"></p>
 <blockquote>
 <p>代理（Proxy），也称网络代理，是一种特殊的网络服务，允许一个网络终端（一般为客户端）通过这个服务与另一个网络终端（一般为服务器）进行非直接的连接。一些网关、路由器等网络设备具备网络代理功能。一般认为代理服务有利于保障网络终端的隐私或安全，防止攻击。——<a href="https://zh.wikipedia.org/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="external">维基百科</a></p>
 </blockquote>
@@ -6,14 +6,40 @@
 <p>为了能快速理解反向代理，我先简单说下服务器中的<strong>负载均衡</strong>：</p>
 <p><strong>负载均衡</strong>是一种网络服务，要解决的是计算机资源最优化使用的问题。最常见的应用是利用多台服务器提供单一服务，这样就可以避免过载，实现快速响应。</p>
 <p>而这里我们的单一服务就是所谓的 <strong>“反向代理”</strong>。它本身不提供服务，真正的服务是由背后的许多服务器来提供，但对用户而言，他们只知道这个“单一服务”的存在，而不知道背后具体提供服务的是谁，像不像总统背后藏了个智囊团……</p>
-<h2 id="反向代理举例"><a href="#反向代理举例" class="headerlink" title="反向代理举例"></a>反向代理举例</h2><p><img alt="" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-21-014021.jpg"></p>
+<h2 id="反向代理举例"><a href="#反向代理举例" class="headerlink" title="反向代理举例"></a>反向代理举例</h2><p><img alt="" class="img-loading" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-21-014021.jpg"></p>
 <p>访问 <code>example.com</code>，但是很可惜 <code>example.com</code> 没有资源。<code>example.com</code> 说没关系啊，我去 找真的<code>web server</code> 把数据拿下来，返回给你。</p>
 <p>这里 <code>example.com</code> 就是一个反向代理。用户只知道我访问的是 <code>example.com</code>，是它提供的数据，并不知道 <code>web server</code> 的存在。</p>
-<h2 id="正向代理举例"><a href="#正向代理举例" class="headerlink" title="正向代理举例"></a>正向代理举例</h2><p><img alt="" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-21-013959.jpg"></p>
+<h2 id="正向代理举例"><a href="#正向代理举例" class="headerlink" title="正向代理举例"></a>正向代理举例</h2><p><img alt="" class="img-loading" data-original="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-21-013959.jpg"></p>
 <p>如果是正向代理（或者叫前向代理），就稍微有些不同了：</p>
 <p>在国内我们无法访问 <code>google.com</code>，这时候你就买了一个美国的服务器做梯子并在本地做好相应配置。当你访问 <code>google.com</code> ，发现就可以访问了。这时候你的那个美国服务器就是<strong>正向代理</strong>，它帮你把 google 的内容下载下来，返回给你，让你以为是你访问的 google。</p>
 <h2 id="Caddy-配置反向代理"><a href="#Caddy-配置反向代理" class="headerlink" title="Caddy 配置反向代理"></a>Caddy 配置反向代理</h2><p>对 Caddy 不了解的同学，出门左转看 <a href="http://www.voyax.me/posts/e38a6063/">Caddy 快速实践</a>。</p>
 <p>我们起多个 node 服务，使用  Caddy 作为反向代理：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">voyax.me &#123;</div><div class="line">    proxy /app localhost:8000 &#123;</div><div class="line">        without /app</div><div class="line">        log ../log/proxy-port-8000.log</div><div class="line">    &#125;</div><div class="line">    proxy /api localhost:8080 &#123;</div><div class="line">        without /api</div><div class="line">        log ../log/proxy-port-8080.log</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</div><div class="article-meta" style="max-width:700px"></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/45ab96e1/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/e38a6063/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('c 4=0.p("4");8.9=5(){4.i+=" o";6(0.2("#1")){$("#1").3({d:"e",f:"g,h,7,j",k:l,}).m("1-3");n b=0.2("#1");5 a(){b.q.r("s")}0.2(".1-t").u("v",a);6(0.2(".3-w")){b.x.y="z"}}};',36,36,'document|toc|querySelector|tocify|wrap|function|if|h4|window|onload|||var|context|body|selectors|h2|h3|className|h5|extendPage|false|data|const|done|getElementById|classList|toggle|show|text|addEventListener|mouseenter|header|style|display|block'.split('|'),0,{}))
-$(function(){$(".post-list img, .article-content img").lazyload({placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",effect:"fadeIn"})});</script></body></html>
+</div><div class="article-meta" style="max-width:700px"></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/45ab96e1/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/e38a6063/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>$(function(){
+  var wrap = document.getElementById("wrap");
+  wrap.className += " done";
+  if (document.querySelector("#toc")) {
+    $("#toc").tocify({
+      context: "body",
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+    const b = document.querySelector("#toc");
+
+    function a() {
+      b.classList.toggle("show")
+    }
+
+    document.querySelector(".toc-text").addEventListener("mouseenter", a);
+    if (document.querySelector(".tocify-header")) {
+      b.style.display = "block"
+    }
+  }
+  $(".post-list img, .article-content img").lazyload({
+    placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
+    effect:"fadeIn",
+    load : function(elements_left, settings) {
+      $(this).removeClass("img-loading");
+    }
+  });
+});</script></body></html>
