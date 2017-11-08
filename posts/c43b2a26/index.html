@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>Git ignorecase in Case-sensitive system - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg"><div class="post-title"><h1 class="title">Git ignorecase in Case-sensitive system</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>2 Minutes</li><li><i class="icon icon-calendar"></i>2017年10月15日</li></ul></div></div><div class="article-content" style="max-width:700px"><p>晚上10点多公司的妹子发了张截图给我（妹子这么刻苦让我汗颜。。。），在我们的 git 仓库中，存在几对仅文件名大小写有区别，内容完全一样的文件。原因很容易想到——重命名。这个问题比较小一般也不容易出现，不过其实花时间想想也蛮有意思。</p>
+<p><strong>case-insensitive file system</strong></p>
+<p>不同的文件系统对大小写是否敏感策略是不同的，以 <code>macOS</code> 为例, 最新的 <code>HFS+</code> 和 <code>APFS</code> 默认大小写不敏感：</p>
+<blockquote>
+<p>APFS accepts only valid UTF-8 encoded filenames for creation, and preserves both case and normalization of the filename on disk in all variants. APFS, like HFS+, is case-sensitive on iOS and is available in case-sensitive and case-insensitive variants on macOS, with case-insensitive being the default.</p>
+<p>In macOS High Sierra, APFS is normalization-insensitive in both the case-insensitive and case-sensitive variants, using a hash-based native normalization scheme. In iOS 11, APFS is normalization-insensitive as well, using either a native normalization scheme (erase restores only) or runtime normalization scheme (upgrades from previous versions). Runtime normalization will also be available in iOS 10.3.3 and macOS Sierra 10.12.6. Being normalization-insensitive ensures that normalization variants of a filename cannot be created in the same directory, and that a filename can be found with any of its normalization variants. This means that developers don’t need to do any additional work to ensure correct normalization behavior in these versions of macOS and iOS.<br> <a href="https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/FAQ/FAQ.html" target="_blank" rel="external">How does Apple File System handle filenames?</a></p>
+</blockquote>
+<p>默认情况下，<code>windows</code> 和 <code>mac</code> 的文件系统都是大小写不敏感的。需要说明的是，我们的大小写敏感实际关系到的是所使用的 <strong>文件系统</strong>。</p>
+<p><strong>core.ignorecase</strong></p>
+<blockquote>
+<p>If true, this option enables various workarounds to enable git to work better on filesystems that are not case sensitive, like FAT. For example, if a directory listing finds makefile when git expects Makefile, git will assume it is really the same file, and continue to remember it as Makefile. <a href="http://jk.gs/git-config.html" target="_blank" rel="external">git config documentation</a></p>
+</blockquote>
+</div><div class="article-meta" style="max-width:700px"></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/c7f12724/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/45ab96e1/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>$(function(){
+  var wrap = document.getElementById("wrap");
+  wrap.className += " done";
+  if (document.querySelector("#toc")) {
+    $("#toc").tocify({
+      context: "body",
+      selectors: "h2,h3,h4,h5",
+      extendPage: false,
+    }).data("toc-tocify");
+    const b = document.querySelector("#toc");
+
+    function a() {
+      b.classList.toggle("show")
+    }
+
+    document.querySelector(".toc-text").addEventListener("mouseenter", a);
+    if (document.querySelector(".tocify-header")) {
+      b.style.display = "block"
+    }
+  }
+  $(".post-list img, .article-content img").lazyload({
+    placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
+    effect:"fadeIn",
+    load : function(elements_left, settings) {
+      $(this).removeClass("img-loading");
+    }
+  });
+});</script></body></html>
