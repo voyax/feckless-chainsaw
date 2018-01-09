@@ -1,36 +1,45 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="像孩子一样写代码"><meta name="keywords" content="CSS, JavaScript, NodeJS, Vue, React, Sketch, Git"><title>60分钟搞定AngularJS——Getting Started - voya</title><link rel="stylesheet" href="/css/jquery.tocify.css"><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="http://oe54phg1r.bkt.clouddn.com/favicon32x32.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="/categories/365/"><span>忆</span></a></li><li><a href="/categories/css-tutorial/"><span>CSS 教程</span></a></li></ul><div class="wrapper wrapper--article" id="wrap"><div id="toc"><div class="toc-text">Table of Content ▾</div></div><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg"><div class="post-title"><h1 class="title">60分钟搞定AngularJS——Getting Started</h1><ul class="meta"><li><i class="icon icon-author"></i>voya</li><li><i class="icon icon-clock"></i>5 Minutes</li><li><i class="icon icon-calendar"></i>2015年8月3日</li></ul></div></div><div class="article-content" style="max-width:700px"><p><img src="" height="70%" width="70%" class="img-loading"></p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>60分钟搞定AngularJS——Getting Started | voya</title><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.3"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>var GLOBAL = { 
+  root: '/',
+  algolia: {"appId":"YJNXHO5R7M","apiKey":"ab4a29bb746e8e08c396964ebbfa38a7","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  localSearch: undefined
+} </script><link rel="icon" href="/favicon.ico"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单页应用-Single-Page-Application-SPA"><span class="toc-number">1.</span> <span class="toc-text">单页应用 Single Page Application(SPA)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单页应用的挑战"><span class="toc-number">2.</span> <span class="toc-text">单页应用的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS一个全方位的SPA框架"><span class="toc-number">3.</span> <span class="toc-text">AngularJS一个全方位的SPA框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS-org"><span class="toc-number">4.</span> <span class="toc-text">AngularJS.org</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN的优势（译者注）"><span class="toc-number">4.1.</span> <span class="toc-text">CDN的优势（译者注）</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-07-26-075816%20.jpg"></div><div class="author-info__name text-center">voya</div><div class="author-info__description text-center">既能朝九晚五，也要浪迹天涯，谦卑平常</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="../../archives"><span class="pull-left">Articles</span><span class="pull-right">149</span></a><a class="author-info-articles__tags article-meta" href="../../tags"><span class="pull-left">Tags</span><span class="pull-right">32</span></a><a class="author-info-articles__categories article-meta" href="../../categories"><span class="pull-left">Categories</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg);"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">voya</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">60分钟搞定AngularJS——Getting Started</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2015-08-03</time><span class="post-meta__separator">|</span><i class="fa fa-tag post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="../../tags/AngularJS/">AngularJS</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">2,008</span><span class="post-meta__separator">|</span><span>Reading time: 6 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><p><img src="" height="70%" width="70%"></p>
 <p>在学习之前，我们应该明白，你为什么还需要学习AngularJS，AngularJS到底提供了哪些有价值的特性。<br>在这一章，我会帮大家回答这个问题。</p>
 <a id="more"></a>
-<h2 id="单页应用-Single-Page-Application-SPA"><a href="#单页应用-Single-Page-Application-SPA" class="headerlink" title="单页应用 Single Page Application(SPA)"></a>单页应用 Single Page Application(SPA)</h2><p><img src="" height="70%" width="70%" class="img-loading"></p>
+<h2 id="单页应用-Single-Page-Application-SPA"><a href="#单页应用-Single-Page-Application-SPA" class="headerlink" title="单页应用 Single Page Application(SPA)"></a>单页应用 Single Page Application(SPA)</h2><p><img src="" height="70%" width="70%"></p>
 <p>首先，什么是<strong>单页应用</strong>。    单页应用是指在一个页面上集成了多个视图模块，其中这个最外层的页面结构称之为Shell Page（翻译成“壳”也太难听了，了解操作系统中shell概念的想必也更乐意说shell）。</p>
 <p>在传统的APP上，你的每一次操作都需要重新加载所有内容，对于带宽特别是在手机上进行这样的操作是非常不方便的。</p>
 <p>而对于单页应用，我们首先做的是，将重要的内容预加载，不同视图或者一些小的组件则采用动态加载。</p>
 <p>通过后面的学习，你会发现，AngularJS是一个非常优秀的单页应用框架，但其优点并不止于此。事实上，如果只是要实现动态加载视图，你完全不必采用AngularJS；你可以选择仅仅是利用AngularJS实现代码分离以及数据绑定。但是，现在本文的重点在利用AngularJS实现单页应用。</p>
-<h2 id="单页应用的挑战"><a href="#单页应用的挑战" class="headerlink" title="单页应用的挑战"></a>单页应用的挑战</h2><p><img src="" height="70%" width="70%" class="img-loading"></p>
+<h2 id="单页应用的挑战"><a href="#单页应用的挑战" class="headerlink" title="单页应用的挑战"></a>单页应用的挑战</h2><p><img src="" height="70%" width="70%"></p>
 <p>如果自己从头实现单页应用，需要解决各种各样的问题：DOM操作、History以及动态加载各模块，同时你还需要处理类似异步调用的Promise模式等等问题。<em>（译者注：我之后将些一篇文章讲解promise）</em></p>
 <p>对于单页应用，路由是非常重要的部分，你需要准确地知道现在是在哪个位置，同时下一步又是跳转到哪个模块。</p>
 <p>前边所谈到的所有这些功能，我们都是可以找到相应的js库的：sammyJS、JQuery、historyJS、requreJS。但是，正如你将会了解到的，AngularJS实现了所有这些功能。</p>
-<h2 id="AngularJS一个全方位的SPA框架"><a href="#AngularJS一个全方位的SPA框架" class="headerlink" title="AngularJS一个全方位的SPA框架"></a>AngularJS一个全方位的SPA框架</h2><p><img src="" height="70%" width="70%" class="img-loading"></p>
+<h2 id="AngularJS一个全方位的SPA框架"><a href="#AngularJS一个全方位的SPA框架" class="headerlink" title="AngularJS一个全方位的SPA框架"></a>AngularJS一个全方位的SPA框架</h2><p><img src="" height="70%" width="70%"></p>
 <p>AngularJS是一个核心库。</p>
 <p>我非常喜欢这个概念，因为我不用依赖繁多的脚本库，也不需要担心各个script在以后是否兼容的问题。</p>
 <p>如果你是在一个开发团队中工作，那么代码的维护将是你需要考虑的目标之一，如果你正好是做维护这方面工作的，其重要性更不必说。</p>
 <p>在我看来，AngularJS有非常好的向下兼容性，你也可以非常方便的进行扩展。</p>
 <p>接下来看一下AngularJS为我们具体提供了哪些功能。</p>
-<p><img src="" height="70%" width="70%" class="img-loading"></p>
+<p><img src="" height="70%" width="70%"></p>
 <p>如上文所谈，AngularJS是一个为单页应用而生的框架，提供了各种各样的功能：<br>双向数据绑定、MVC（Model-View-Controller 模板-视图-控制器）的概念，通过内建的路由实现视图之间的路由。</p>
 <p>AngularJS一开始就考虑了测试功能，我们强烈推荐建立健壮的测试。</p>
 <p>AngularJS内置了jQlite进行Dom操作，jQlite实现了一些类似于JQuery的操作，你可以把它当做一个精简版的JQuery。如果你需要用到更高级操作，你也可以引入JQuery:Angular和JQuery可以完全兼容。</p>
 <p>谈到数据绑定，AngularJS提供了全面的模板支持。AngularJS内部实现了history，通过factory和service可以实现数据和代码的共享。</p>
 <p>AngularJS还提供了许多其他很多东西：通过View Model(模板视图)来完成数据绑定，下一章节介绍的Directives将给HTML带来一些新的花样，表单的验证，依赖注入等等。</p>
 <blockquote>
-<p>（这里对依赖注入进行简单的解释：依赖注入是一种软件设计模式，即各组件之间的关系由运行期间的需要动态决定，解决依赖关系硬编码的问题，减少逐渐之间的耦合；这在进行单元测试的时候将非常方便。对AngularJS依赖注入的解释可以参考知乎上<a href="http://www.zhihu.com/question/28097646" target="_blank" rel="external">《AngularJS中的依赖注入实际应用场景？》</a> 的讨论。)</p>
+<p>（这里对依赖注入进行简单的解释：依赖注入是一种软件设计模式，即各组件之间的关系由运行期间的需要动态决定，解决依赖关系硬编码的问题，减少逐渐之间的耦合；这在进行单元测试的时候将非常方便。对AngularJS依赖注入的解释可以参考知乎上<a href="http://www.zhihu.com/question/28097646" target="_blank" rel="noopener">《AngularJS中的依赖注入实际应用场景？》</a> 的讨论。)</p>
 <p>These are just some of the core features and these features will satisfy some of the others that I mentioned when it comes to building a SPA.</p>
 </blockquote>
 <p>这些都是AngularJS提供的众多特性中的一部分，这些特性将解决使得单页应用中的其他部分得以解决。</p>
 <p>如此看来，从头做一个单页应用可能是一个挑战，但也并非高不可攀。</p>
-<h2 id="AngularJS-org"><a href="#AngularJS-org" class="headerlink" title="AngularJS.org"></a><a href="http://www.angularjs.org/" target="_blank" rel="external">AngularJS.org</a></h2><p><img src="" width="70%" height="70%" class="img-loading"></p>
-<p>打开AngularJS的网站，我将给大家演示如何开始。在下一部分，我们将学习AnuglarJS入门的一些关键特性。<br>首先，访问<a href="http://angularjs.org" target="_blank" rel="external">angularjs.org</a>。在这你既可以通过github下载所有的script代码，也可以直接点击”Download”进行下载，非常简单吧。</p>
-<p><img src="" width="70%" height="70%" class="img-loading"></p>
+<h2 id="AngularJS-org"><a href="#AngularJS-org" class="headerlink" title="AngularJS.org"></a><a href="http://www.angularjs.org/" target="_blank" rel="noopener">AngularJS.org</a></h2><p><img src="" width="70%" height="70%"></p>
+<p>打开AngularJS的网站，我将给大家演示如何开始。在下一部分，我们将学习AnuglarJS入门的一些关键特性。<br>首先，访问<a href="http://angularjs.org" target="_blank" rel="noopener">angularjs.org</a>。在这你既可以通过github下载所有的script代码，也可以直接点击”Download”进行下载，非常简单吧。</p>
+<p><img src="" width="70%" height="70%"></p>
 <p>在这有两个下载选项，既可以下载稳定版（stable）也可下载测试版(unstable)。如果你想尝试最新的东西，那就下载测试版吧，我个人一直都采用测试版，而且也并没有遇到什么问题，不过如果是在实际产品中，官方推荐采用稳定版。</p>
 <p>接下来选择压缩版或者没有压缩的，以及Zip版本的。</p>
 <p>你也可以采用 <strong>CDN</strong> ，<strong>CDN</strong> 将有谷歌各地区的数据中心提供。</p>
@@ -47,35 +56,8 @@
 </ul>
 </blockquote>
 <p>现在我只需下载压缩过的稳定版angular.min.js，点击保存。</p>
-<p><img src="" width="70%" height="70%" class="img-loading"></p>
+<p><img src="" width="70%" height="70%"></p>
 <p>现在我们只需将angular.min.js引入到一个页面中。</p>
-<p><img src="" width="70%" height="70%" class="img-loading"></p>
+<p><img src="" width="70%" height="70%"></p>
 <p>我已经将脚本引入到页面头部，</p>
-</div><div class="article-meta" style="max-width:700px"><div class="tags"><i class="icon icon-tag"></i><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">3</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/posts/45363/"><i class="icon icon-arror-left"></i></a></li><li><a href="/posts/53122/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="bottom"><div class="copyright">© 2017 voya<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></div></div></div></div><script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script><script src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script><script src="/js/jquery-ui-1.9.1.custom.min.js"></script><script src="/js/jquery.tocify.min.js"></script><script>$(function(){
-  var wrap = document.getElementById("wrap");
-  wrap.className += " done";
-  if (document.querySelector("#toc")) {
-    $("#toc").tocify({
-      context: "body",
-      selectors: "h2,h3,h4,h5",
-      extendPage: false,
-    }).data("toc-tocify");
-    const b = document.querySelector("#toc");
-
-    function a() {
-      b.classList.toggle("show")
-    }
-
-    document.querySelector(".toc-text").addEventListener("mouseenter", a);
-    if (document.querySelector(".tocify-header")) {
-      b.style.display = "block"
-    }
-  }
-  $(".post-list img, .article-content img").lazyload({
-    placeholder:"http://oe54phg1r.bkt.clouddn.com/typing-preloader.svg",
-    effect:"fadeIn",
-    load : function(elements_left, settings) {
-      $(this).removeClass("img-loading");
-    }
-  });
-});</script></body></html>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info">voya</span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info">http://www.voyax.meposts/19847/</span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../tags/AngularJS/">AngularJS</a></div></article><nav id="pagination"><div class="prev-post pull-left"><a href="../45363/"><i class="fa fa-chevron-left">  </i><span>（转|译）在AngularJS中使用的表单验证功能</span></a></div><div class="next-post pull-right"><a href="../53122/"><span>60分钟搞定AngularJS——Introduction</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">©2016 - 2018 By voya</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Hosted by - </span><a href="https://pages.coding.me/"><span>Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.3"></script><script src="/js/fancybox.js?version=1.3"></script><script src="/js/sidebar.js?version=1.3"></script><script src="/js/copy.js?version=1.3"></script><script src="/js/fireworks.js?version=1.3"></script><script src="/js/transition.js?version=1.3"></script><script src="/js/scroll.js?version=1.3"></script><script src="/js/head.js?version=1.3"></script></body></html>
