@@ -1,13 +1,69 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>CSS第一课 你热了么 | voya</title><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.3"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>var GLOBAL = { 
-  root: '/',
-  algolia: {"appId":"TJ6WR04MZ3","apiKey":"81961c3645425e892e7caa399f73e5b2","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  localSearch: undefined
-} </script><link rel="icon" href="/favicon.ico"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Let’s-Go-Go-Go"><span class="toc-number">1.</span> <span class="toc-text">Let’s Go Go Go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#页面模版"><span class="toc-number">2.1.</span> <span class="toc-text">页面模版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用browser-sync实时刷新页面"><span class="toc-number">2.2.</span> <span class="toc-text">利用browser-sync实时刷新页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入normalize-css"><span class="toc-number">2.3.</span> <span class="toc-text">引入normalize.css</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航页面"><span class="toc-number">3.</span> <span class="toc-text">导航页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BEM"><span class="toc-number">3.1.</span> <span class="toc-text">BEM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完成导航"><span class="toc-number">3.2.</span> <span class="toc-text">完成导航</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-07-26-075816%20.jpg"></div><div class="author-info__name text-center">voya</div><div class="author-info__description text-center">Reading, Collecting, Thinking and Doing</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="../../archives"><span class="pull-left">文章</span><span class="pull-right">150</span></a><a class="author-info-articles__tags article-meta" href="../../tags"><span class="pull-left">标签</span><span class="pull-right">32</span></a><a class="author-info-articles__categories article-meta" href="../../categories"><span class="pull-left">分类</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg);"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">voya</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">CSS第一课 你热了么</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-07-26</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"> </i><a class="post-meta__categories" href="../../categories/css-tutorial/">css-tutorial</a><span class="post-meta__separator">|</span><i class="fa fa-tag post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="../../tags/CSS/">CSS</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2,012</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><p>按照Sketch设计稿，实现一个完整的页面：</p>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>CSS第一课 你热了么 | voya</title>
+
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.ec1199.css"><link rel="stylesheet" href="/./app.72d74b.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Let’s-Go-Go-Go"><span class="toc-number">1.</span> <span class="toc-text">Let’s Go Go Go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#页面模版"><span class="toc-number">2.1.</span> <span class="toc-text">页面模版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用browser-sync实时刷新页面"><span class="toc-number">2.2.</span> <span class="toc-text">利用browser-sync实时刷新页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入normalize-css"><span class="toc-number">2.3.</span> <span class="toc-text">引入normalize.css</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航页面"><span class="toc-number">3.</span> <span class="toc-text">导航页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BEM"><span class="toc-number">3.1.</span> <span class="toc-text">BEM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完成导航"><span class="toc-number">3.2.</span> <span class="toc-text">完成导航</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>CSS第一课 你热了么</h1>
+      <p>按照Sketch设计稿，实现一个完整的页面：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2968570-be5bd3eb87eb8e96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>希望你学完这一些列课程后，能够系统地掌握CSS，真正把CSS玩转</p>
 <a id="more"></a>
@@ -23,8 +79,21 @@
 <h3 id="页面模版"><a href="#页面模版" class="headerlink" title="页面模版"></a>页面模版</h3><p>还记得在HTML的课程中，为了保持代码的一致性并节省时间，保存的html模板么</p>
 <p>大多数编辑器都允许你按照自己的风格定制模板</p>
 <p>如果你用的atom，参考<a href="http://www.voyax.me/2016/08/12/atom代码补全snippets配置/">atom代码补全snippets配置</a>。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cmn-Hans"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS Lesson 1<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Cache-Control"</span> <span class="attr">content</span>=<span class="string">"no-siteapp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/normalize.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="利用browser-sync实时刷新页面"><a href="#利用browser-sync实时刷新页面" class="headerlink" title="利用browser-sync实时刷新页面"></a>利用browser-sync实时刷新页面</h3><p>为了省去每次修改代码后都要手动刷新页面，我习惯使用<code>browser-sync</code>监听文件，自动刷新浏览器</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-cmn-Hans&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;CSS Lesson 1&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no&quot;&gt;
+    &lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot;&gt;
+    &lt;link href=&quot;css/normalize.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="利用browser-sync实时刷新页面"><a href="#利用browser-sync实时刷新页面" class="headerlink" title="利用browser-sync实时刷新页面"></a>利用browser-sync实时刷新页面</h3><p>为了省去每次修改代码后都要手动刷新页面，我习惯使用<code>browser-sync</code>监听文件，自动刷新浏览器</p>
 <ol>
 <li>安装Browsersync<br> <code>npm install -g browser-sync</code></li>
 <li>运行Browsersync<br> <code>browser-sync start --server --files index.html --files &quot;css/*.css&quot;</code></li>
@@ -35,20 +104,48 @@
 </blockquote>
 <p><img src="http://ww3.sinaimg.cn/large/801b780agw1f8ipxsh4hcj20ku0alt8z.jpg" alt=""></p>
 <h2 id="导航页面"><a href="#导航页面" class="headerlink" title="导航页面"></a>导航页面</h2><p>根据设计稿，我们把整个页面分为三个部分，头部、内容区域、页脚</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;header <span class="class"><span class="keyword">class</span> </span>= <span class="string">"site__header"</span>&gt;      </span><br><span class="line">&lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">&lt;main class = "site__main"&gt;      </span></span><br><span class="line"><span class="regexp">&lt;/m</span>ain&gt;</span><br><span class="line">&lt;footer <span class="class"><span class="keyword">class</span> </span>= <span class="string">"site__footer"</span>&gt;</span><br><span class="line"> &lt;<span class="regexp">/footer&gt;</span></span><br></pre></td></tr></table></figure>
-<p>用BEM作为CSS的命名规范，虽然<code>site__header</code>丑了点，但是在你代码越来越多的时候，这个东西可以让你的代码没那么混乱</p>
+<pre><code>&lt;header class = &quot;site__header&quot;&gt;      
+&lt;/header&gt;
+&lt;main class = &quot;site__main&quot;&gt;      
+&lt;/main&gt;
+&lt;footer class = &quot;site__footer&quot;&gt;
+ &lt;/footer&gt;
+</code></pre><p>用BEM作为CSS的命名规范，虽然<code>site__header</code>丑了点，但是在你代码越来越多的时候，这个东西可以让你的代码没那么混乱</p>
 <h3 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a>BEM</h3><p><strong>BEM</strong> 其实很简单，有点面向对象编程的意思，不过比OOP还简单直接。只要记住，BEM是由<strong>Block(块)</strong>，<strong>Element(元素)</strong>，<strong>Modifier(修饰符)</strong>组成，<code>__</code>连接Element，<code>--</code>连接Modifier；你把代码按照模块来组织。举个例子：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.person</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.person__avatar</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.person__avatar--round</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>我们有一个<code>person</code>的<code>Block</code>，每个人都有头像、名字、描述之类的，所以我们用到<code>.person__element</code>；头像我们可能需要方的、圆的……都需要对这些进行单独设置，所以这时候对每个元素就用到<code>Modifier</code>。代码非常扁平是不是，如果按照我们以前的写法，可能就是这样：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.person</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.person</span> <span class="selector-class">.avatar</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.round</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>好像除了长一点，没什么区别呀！<br>那现在加一个动物，加个狗吧：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.dog</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.dog</span> <span class="selector-class">.avatar</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.round</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>现在有个人养了一条狗，我们的<code>HTML</code>是这样：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>  = <span class="string">"person"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"avatar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 人头 --&gt;</span></span><br><span class="line">        …</span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- dog --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"dog"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"avatar round"</span>&gt;</span> <span class="comment">&lt;!-- 狗脑 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>有没有晕乎乎的感觉，这两个avatar是一样的还是不一样的，到底应用了哪条样式，还有没有公共的样式+_+？（模块这个东西看起来很悬，不同人理解可能也有偏差，但是你只要用着舒服就行了，写多了，你就知道到底怎么按模块化来写代码了）</p>
+<pre><code>.person{}
+.person__avatar{}
+.person__avatar--round{}
+</code></pre><p>我们有一个<code>person</code>的<code>Block</code>，每个人都有头像、名字、描述之类的，所以我们用到<code>.person__element</code>；头像我们可能需要方的、圆的……都需要对这些进行单独设置，所以这时候对每个元素就用到<code>Modifier</code>。代码非常扁平是不是，如果按照我们以前的写法，可能就是这样：</p>
+<pre><code>.person{}
+.person .avatar{}
+.round{}
+</code></pre><p>好像除了长一点，没什么区别呀！<br>那现在加一个动物，加个狗吧：</p>
+<pre><code>.dog{}
+.dog .avatar{}
+.round{}
+</code></pre><p>现在有个人养了一条狗，我们的<code>HTML</code>是这样：</p>
+<pre><code>&lt;div class  = &quot;person&quot;&gt;
+    &lt;div class = &quot;avatar&quot;&gt;&lt;/div&gt; &lt;!-- 人头 --&gt;
+        …
+
+    &lt;!-- dog --&gt;
+    &lt;div class = &quot;dog&quot;&gt;
+        &lt;div class = &quot;avatar round&quot;&gt; &lt;!-- 狗脑 --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>有没有晕乎乎的感觉，这两个avatar是一样的还是不一样的，到底应用了哪条样式，还有没有公共的样式+_+？（模块这个东西看起来很悬，不同人理解可能也有偏差，但是你只要用着舒服就行了，写多了，你就知道到底怎么按模块化来写代码了）</p>
 <h3 id="完成导航"><a href="#完成导航" class="headerlink" title="完成导航"></a>完成导航</h3><p><code>HTML</code>结构</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"site__header"</span>&gt;</span><br><span class="line">    &lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar"</span>&gt;</span><br><span class="line">      &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar__brand"</span> href=<span class="string">"#"</span>&gt;Company Logo&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ul class="navbar__nav list-nostyle"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;&lt;a href="#"&gt;Platform&lt;/</span>a&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"active"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Sign Up<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">      &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>nav&gt;</span><br><span class="line">  &lt;<span class="regexp">/header&gt;</span></span><br></pre></td></tr></table></figure>
-<p>运行<br><code>browser-sync start --server --files &#39;index.html&#39; --files &quot;css/*.css&quot;</code></p>
+<pre><code>&lt;header class=&quot;site__header&quot;&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+      &lt;a class=&quot;navbar__brand&quot; href=&quot;#&quot;&gt;Company Logo&lt;/a&gt;
+      &lt;ul class=&quot;navbar__nav list-nostyle&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Platform&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;active&quot; href=&quot;#&quot;&gt;Sign Up&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+</code></pre><p>运行<br><code>browser-sync start --server --files &#39;index.html&#39; --files &quot;css/*.css&quot;</code></p>
 <p><img src="http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741682276835.jpg" alt=""></p>
 <p>好了，改点样式让它看来好看点</p>
 <ol>
@@ -56,13 +153,49 @@
 <li>去掉<code>li</code>默认的样式</li>
 <li>左右布局</li>
 </ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* list with no style</span></span><br><span class="line"><span class="comment">  ========================================================================== */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 1. remove the margin and padding</span></span><br><span class="line"><span class="comment">* 2. remove list style</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list-nostyle</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-nostyle</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* site header</span></span><br><span class="line"><span class="comment">  ========================================================================== */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.site__header</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.navbar</span>&#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.navbar__brand</span>&#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.navbar__nav</span>&#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.navbar__nav</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css">/* list with no style
+  ========================================================================== */
+
+/**
+* 1. remove the margin and padding
+* 2. remove list style
+*/
+
+.list-nostyle{
+  margin: 0;
+  padding: 0;
+}
+.list-nostyle li{
+  list-style: none;
+}
+
+/* site header
+  ========================================================================== */
+
+.site__header{
+  height: 70px;
+}
+.navbar{
+  padding: 15px 20px;
+}
+.navbar__brand{
+  float: left;
+}
+.navbar__nav{
+  float: right;
+}
+.navbar__nav li{
+  display: inline-block;
+}
+</code></pre>
 <p>首先，我们为页眉设置了一个<code>70px</code>的高度</p>
 <p>通过浮动来实现Logo左对齐，导航右对齐</p>
 <p>因为<code>&lt;li&gt;</code>是<strong>块级元素</strong>，所以会产生换行，我们把<code>li</code>设置成<code>inline-block</code>，在同一行显示</p>
 <p><code>&lt;a&gt;</code>标签我们一般更习惯不要下划线，而是通过颜色来突出是链接，所以我们把<code>&lt;a&gt;</code>标签的下划线统一去掉：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>现在你看到的应该是这样：</p>
+<pre><code>a{
+    text-decoration: none;
+}
+</code></pre><p>现在你看到的应该是这样：</p>
 <p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1f8isxqm5b2j31kw0clgmd.jpg" alt=""></p>
 <p><strong>inline-block空格的问题</strong></p>
 <p>现在回去看看，有个问题需要处理一下：</p>
@@ -71,24 +204,53 @@
 <p>有各种奇奇怪怪的方法可以解决这个问题，这里我只给出我平常用得最多的两个方法：</p>
 <ul>
 <li><p>设置font-size: 0;（如果浏览器设置了最小字体大小要跪。。。）</p>
-  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  ul{
+      font-size: 0;
+  }
+  li{
+      display: inline-block;
+      font-size: 1rem;
+  }
+</code></pre></li>
 <li><p>去掉标签之间的空白符</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>…<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>…<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>…<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  &lt;li&gt;…&lt;/li&gt;&lt;li&gt;…&lt;/li&gt;&lt;li&gt;…&lt;/li&gt;
+</code></pre></li>
 </ul>
 <p>喜欢哪个方法就用哪个，快自己把这个bug修复了</p>
 <p><strong>美化导航样式</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navbar__brand</span>, <span class="selector-class">.navbar__nav</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  </span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">24px</span> <span class="number">8px</span> <span class="number">24px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">22px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里加了边框方便调试：</p>
+<pre><code>.navbar__brand, .navbar__nav li a{
+  display: inline-block;
+
+  box-sizing: border-box;
+  height: 40px;
+  padding: 8px 24px 8px 24px;
+  border: 1px solid #ccc;
+
+  line-height: 22px;
+}
+</code></pre><p>这里加了边框方便调试：</p>
 <ul>
 <li><p>为了能够设置在垂直方向上的高度(<code>padding-top/bottom, margin-top/bottom, height</code>)：我们设置行内元素<code>&lt;a&gt;</code> <code>display</code>为<code>inline-block</code></p>
 <p>  行内元素是就像水一样，垂直方向上设置高度都没用，所以有时候需要设置为<code>inline-block</code>或<code>block</code>。<br>  有个形象的比喻，<code>inline</code>=&gt;水，<code>inline-block</code>=&gt;果冻，<code>block</code>=&gt;石头</p>
 </li>
 <li><p>设置<code>box-sizing</code>为<code>border-box</code></p>
 <p>  默认情况下，元素的height只包括内容区域。但是我们经常需要加入border或者padding，元素的高度的实际高度是<code>padding + border + height</code>，每次你都需要减去<code>padding</code>和<code>border</code>。除了计算麻烦之外，用<strong>百分比</strong>设置高度的时候，你经常会遇到<strong>内容区域溢出</strong>的问题：</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    html,body&#123;</span></span><br><span class="line"><span class="undefined">      height: 100%;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span>&#123;</span></span><br><span class="line"><span class="undefined">      padding: 0 20px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    Hello World</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>  <img src="![](http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741908482970.jpg" alt=""></p>
+<pre><code>  &lt;style&gt;
+    html,body{
+      height: 100%;
+      width:100%;
+    }
+    .container{
+      padding: 0 20px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    Hello World
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>  <img src="![](http://oe54phg1r.bkt.clouddn.com/blog/2016-10-06-14741908482970.jpg" alt=""></p>
 </li>
 <li><p>通过<code>line-height</code>进行垂直居中：<br>  css中水平居中很简单，但是垂直居中就不好做了。通过设置line-height等于<code>height</code>可以让文字垂直居中。关于居中的问题，参考<a href="http://www.voyax.me/2016/04/19/译-CSS居中完全指南/">[译]CSS居中完全指南</a>：<a href="http://www.voyax.me/2016/04/19/译-CSS居中完全指南/">http://www.voyax.me/2016/04/19/译-CSS居中完全指南/</a></p>
 <p>  最后还有一个大坑！！！</p>
@@ -102,8 +264,35 @@
 </ol>
 <p>代码如下：</p>
 <p>通过<code>overflow</code>触发<code>BFC</code></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navbar</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>clearfix</code>（关于clearfix的讨论，看看stackoverflow上的<a href="http://stackoverflow.com/questions/8554043/what-is-a-clearfix" target="_blank" rel="noopener">这个讨论</a>）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">   <span class="attribute">content</span>: <span class="string">" "</span>; <span class="comment">/* Older browser do not support empty content */</span></span><br><span class="line">   <span class="attribute">visibility</span>: hidden;</span><br><span class="line">   <span class="attribute">display</span>: block;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这一章主要带着你踩踩坑，介绍了几个开发中经常遇到的问题。下一张我们看看在实际开发中，如果从零开始组织你的代码，同时逐步完成这个页面。</p>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info">voya</span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info">http://www.voyax.meposts/44828b7f/</span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../tags/CSS/">CSS</a></div></article><nav id="pagination"><div class="prev-post pull-left"><a href="../../posts/3bcac801/"><i class="fa fa-chevron-left">  </i><span>CSS第二课 优雅</span></a></div><div class="next-post pull-right"><a href="../../posts/4972c060/"><span>CSS 入门指南</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">©2016 - 2018 By voya</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Hosted by - </span><a href="https://pages.coding.me/"><span>Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.3"></script><script src="/js/fancybox.js?version=1.3"></script><script src="/js/sidebar.js?version=1.3"></script><script src="/js/copy.js?version=1.3"></script><script src="/js/fireworks.js?version=1.3"></script><script src="/js/transition.js?version=1.3"></script><script src="/js/scroll.js?version=1.3"></script><script src="/js/head.js?version=1.3"></script></body></html>
+<pre><code>.navbar::after{
+    overflow: hidden;
+}
+</code></pre><p><code>clearfix</code>（关于clearfix的讨论，看看stackoverflow上的<a href="http://stackoverflow.com/questions/8554043/what-is-a-clearfix" target="_blank" rel="noopener">这个讨论</a>）</p>
+<pre><code>.clearfix:after {
+   content: &quot; &quot;; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这一章主要带着你踩踩坑，介绍了几个开发中经常遇到的问题。下一张我们看看在实际开发中，如果从零开始组织你的代码，同时逐步完成这个页面。</p>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 voya
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.32f029.js"></script><script src="/./vendor.ec1199.js"></script><script src="/./app.72d74b.js"></script>
+
+
+  </body>
+</html>

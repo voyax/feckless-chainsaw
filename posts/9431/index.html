@@ -1,34 +1,85 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>DNS采用TCP和UDP传输层协议 | voya</title><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.3"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>var GLOBAL = { 
-  root: '/',
-  algolia: {"appId":"TJ6WR04MZ3","apiKey":"81961c3645425e892e7caa399f73e5b2","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  localSearch: undefined
-} </script><link rel="icon" href="/favicon.ico"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-07-26-075816%20.jpg"></div><div class="author-info__name text-center">voya</div><div class="author-info__description text-center">Reading, Collecting, Thinking and Doing</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="../../archives"><span class="pull-left">文章</span><span class="pull-right">150</span></a><a class="author-info-articles__tags article-meta" href="../../tags"><span class="pull-left">标签</span><span class="pull-right">32</span></a><a class="author-info-articles__categories article-meta" href="../../categories"><span class="pull-left">分类</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg);"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">voya</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">DNS采用TCP和UDP传输层协议</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2014-05-18</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"> </i><a class="post-meta__categories" href="../../categories/学习笔记/">学习笔记</a><span class="post-meta__separator">|</span><i class="fa fa-tag post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="../../tags/传输层/">传输层</a><a class="post-meta__categories" href="../../tags/网络/">网络</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1,133</span><span class="post-meta__separator">|</span><span>阅读时长: 3 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br>    <span style="font-size: 14px;">DNS同时占用UDP和TCP端口53是公认的，这种单个应用协议同时使用两种传输协议的情况在TCP/IP栈也算是个另类。但很少有人知道DNS分别在什么情况下使用这两种协议。&nbsp;<br><br>    &nbsp;</span><br></div>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>DNS采用TCP和UDP传输层协议 | voya</title>
+
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.ec1199.css"><link rel="stylesheet" href="/./app.72d74b.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+
+
+  <div class="container">
+    <article>
+      <h1>DNS采用TCP和UDP传输层协议</h1>
+      <div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br>    <span style="font-size: 14px;">DNS同时占用UDP和TCP端口53是公认的，这种单个应用协议同时使用两种传输协议的情况在TCP/IP栈也算是个另类。但很少有人知道DNS分别在什么情况下使用这两种协议。&nbsp;<br><br>    &nbsp;</span><br></div>
 
 <ol>
-<li># <pre><code>1.先简单介绍下TCP与UDP。&amp;nbsp;
+<li># <pre><code>    1.先简单介绍下TCP与UDP。&amp;nbsp;
 </code></pre></li>
 </ol>
 <div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br>    <span style="font-size: 14px;">&nbsp; &nbsp; TCP是一种面向连接的协议，提供可靠的数据传输，一般服务质量要求比较高的情况，使用这个协议。UDP—用户数据报协议，是一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。&nbsp;</span><br></div>
 
 <ol>
-<li># <pre><code>2.TCP与UDP的区别：&amp;nbsp;
+<li># <pre><code>    2.TCP与UDP的区别：&amp;nbsp;
 </code></pre></li>
 </ol>
 <div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br>    <span style="font-size: 14px;">&nbsp;<br><br>    &nbsp; &nbsp; UDP和TCP协议的主要区别是两者在如何实现信息的可靠传递方面不同。TCP协议中包含了专门的传递保证机制，当数据接收方收到发送方传来的信息时，会自动向发送方发出确认消息；发送方只有在接收到该确认消息之后才继续传送其它信息，否则将一直等待直到收到确认信息为止。 与TCP不同，UDP协议并不提供数据传送的保证机制。如果在从发送方到接收方的传递过程中出现数据报的丢失，协议本身并不能做出任何检测或提示。因此，通常人们把UDP协议称为不可靠的传输协议。相对于TCP协议，UDP协议的另外一个不同之处在于如何接收突发性的多个数据报。不同于TCP，UDP并不能确保数据的发送和接收顺序。事实上，UDP协议的这种乱序性基本上很少出现，通常只会在网络非常拥挤的情况下才有可能发生。&nbsp;<br><br>    &nbsp;<br><br>    &nbsp; &nbsp; 既然UDP是一种不可靠的网络协议，那么还有什么使用价值或必要呢？其实不然，在有些情况下UDP协议可能会变得非常有用。因为UDP具有TCP所望尘莫及的速度优势。虽然TCP协议中植入了各种安全保障功能，但是在实际执行的过程中会占用大量的系统开销，无疑使速度受到严重的影响。反观UDP由于排除了信息可靠传递机制，将安全和排序等功能移交给上层应用来完成，极大降低了执行时间，使速度得到了保证。&nbsp;<br><br>    &nbsp;</span><br></div>
 
 <ol>
-<li># <pre><code>3.DNS在进行区域传输的时候使用TCP协议，其它时候则使用UDP协议；&amp;nbsp;
+<li># <pre><code>    3.DNS在进行区域传输的时候使用TCP协议，其它时候则使用UDP协议；&amp;nbsp;
 </code></pre></li>
 </ol>
 <div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br>    <span style="font-size: 14px;">&nbsp;<br><br>    &nbsp; &nbsp; DNS的规范规定了2种类型的DNS服务器，一个叫主DNS服务器，一个叫辅助DNS服务器。在一个区中主DNS服务器从自己本机的数据文件中读取该区的DNS数据信息，而辅助DNS服务器则从区的主DNS服务器中读取该区的DNS数据信息。当一个辅助DNS服务器启动时，它需要与主DNS服务器通信，并加载数据信息，这就叫做区传送（zone transfer）。&nbsp;<br><br>    &nbsp;</span><br></div>
 
 <ol>
-<li># <pre><code>4.为什么既使用TCP又使用UDP？&amp;nbsp;
+<li># <pre><code>    4.为什么既使用TCP又使用UDP？&amp;nbsp;
 </code></pre></li>
 </ol>
 <div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br>    <span style="font-size: 14px;">首先了解一下TCP与UDP传送字节的长度限制：&nbsp;<br><br>    &nbsp; &nbsp;UDP报文的最大长度为512字节，而TCP则允许报文长度超过512字节。当DNS查询超过512字节时，协议的TC标志出现删除标志，这时则使用TCP发送。通常传统的UDP报文一般不会大于512字节。&nbsp;<br><br>    区域传送时使用TCP，主要有一下两点考虑：&nbsp;<br><br>    1.辅域名服务器会定时（一般时3小时）向主域名服务器进行查询以便了解数据是否有变动。如有变动，则会执行一次区域传送，进行数据同步。区域传送将使用TCP而不是UDP，因为数据同步传送的数据量比一个请求和应答的数据量要多得多。&nbsp;<br><br>    2.TCP是一种可靠的连接，保证了数据的准确性。&nbsp;<br><br>    &nbsp;<br><br>    域名解析时使用UDP协议：&nbsp;<br><br>    &nbsp;<br><br>    客户端向DNS服务器查询域名，一般返回的内容都不超过512字节，用UDP传输即可。不用经过TCP三次握手，这样DNS服务器负载更低，响应更快。虽然从理论上说，客户端也可以指定向DNS服务器查询的时候使用TCP，但事实上，很多DNS服务器进行配置的时候，仅支持UDP查询包。</span><br></div>
@@ -37,4 +88,23 @@
 
 <div style="border-width: 0px; padding: 0px; margin: 0px; list-style: none; font-family: 宋体; font-size: 14px; line-height: 28px;"><br><br><em> </em> *<br><br>    原文转自：<a href="http://www.2cto.com/net/201206/137153.html" target="_blank" rel="noopener">http://www.2cto.com/net/201206/137153.html</a><br></div>
 
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info">voya</span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info">http://www.voyax.meposts/9431/</span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../tags/传输层/">传输层</a><a class="post-meta__tags" href="../../tags/网络/">网络</a></div></article><nav id="pagination"><div class="prev-post pull-left"><a href="../../posts/39407/"><i class="fa fa-chevron-left">  </i><span>学习习近平总书记2014年5月4日在北京大学讲话精神</span></a></div><div class="next-post pull-right"><a href="../../posts/12433/"><span>x86汇编指​令​与​寻​址​方​式​习​题​与解答</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">©2016 - 2018 By voya</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Hosted by - </span><a href="https://pages.coding.me/"><span>Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.3"></script><script src="/js/fancybox.js?version=1.3"></script><script src="/js/sidebar.js?version=1.3"></script><script src="/js/copy.js?version=1.3"></script><script src="/js/fireworks.js?version=1.3"></script><script src="/js/transition.js?version=1.3"></script><script src="/js/scroll.js?version=1.3"></script><script src="/js/head.js?version=1.3"></script></body></html>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 voya
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.32f029.js"></script><script src="/./vendor.ec1199.js"></script><script src="/./app.72d74b.js"></script>
+
+
+  </body>
+</html>

@@ -1,13 +1,69 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>解剖 JavaScript 单线程 | voya</title><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.3"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>var GLOBAL = { 
-  root: '/',
-  algolia: {"appId":"TJ6WR04MZ3","apiKey":"81961c3645425e892e7caa399f73e5b2","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  localSearch: undefined
-} </script><link rel="icon" href="/favicon.ico"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程（process）和线程（thread）"><span class="toc-number">1.</span> <span class="toc-text">进程（process）和线程（thread）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是进程"><span class="toc-number">1.1.</span> <span class="toc-text">什么是进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程"><span class="toc-number">2.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-单线程到底指什么"><span class="toc-number">3.</span> <span class="toc-text">JavaScript 单线程到底指什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器是多线程的"><span class="toc-number">4.</span> <span class="toc-text">浏览器是多线程的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器内核"><span class="toc-number">5.</span> <span class="toc-text">浏览器内核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-Runtime-和-EventLoop"><span class="toc-number">6.</span> <span class="toc-text">JavaScript Runtime 和 EventLoop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-07-26-075816%20.jpg"></div><div class="author-info__name text-center">voya</div><div class="author-info__description text-center">Reading, Collecting, Thinking and Doing</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="../../archives"><span class="pull-left">文章</span><span class="pull-right">150</span></a><a class="author-info-articles__tags article-meta" href="../../tags"><span class="pull-left">标签</span><span class="pull-right">32</span></a><a class="author-info-articles__categories article-meta" href="../../categories"><span class="pull-left">分类</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg);"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">voya</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">解剖 JavaScript 单线程</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-02-24</time><span class="post-meta__separator">|</span><i class="fa fa-tag post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="../../tags/JavaScript/">JavaScript</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2,768</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><blockquote>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>解剖 JavaScript 单线程 | voya</title>
+
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.ec1199.css"><link rel="stylesheet" href="/./app.72d74b.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程（process）和线程（thread）"><span class="toc-number">1.</span> <span class="toc-text">进程（process）和线程（thread）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是进程"><span class="toc-number">1.1.</span> <span class="toc-text">什么是进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程"><span class="toc-number">2.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-单线程到底指什么"><span class="toc-number">3.</span> <span class="toc-text">JavaScript 单线程到底指什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器是多线程的"><span class="toc-number">4.</span> <span class="toc-text">浏览器是多线程的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器内核"><span class="toc-number">5.</span> <span class="toc-text">浏览器内核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-Runtime-和-EventLoop"><span class="toc-number">6.</span> <span class="toc-text">JavaScript Runtime 和 EventLoop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>解剖 JavaScript 单线程</h1>
+      <blockquote>
 <p>人有九窍，窍窍缘心，九窍全通，遍体通泰，明心见性。</p>
 </blockquote>
 <p>单线程是 JavaScript 的精髓之一，但是在初学以及大部分开发过程中，不懂单线程，貌似也不会遇到什么困难。这类原理性的东西，不懂也是能写代码的，但是懂了心里才有底，不至于写了上万行代码还是畏手畏脚。JavaScript 单线程涉及进程、线程的基本概念，浏览器架构、事件循环、异步机制…</p>
@@ -67,7 +123,15 @@
 <li><p>定时触发器线程</p>
 <p>浏览器定时计数器 (<code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>) 并不是由JavaScript引擎计数的, 因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确, 因此通过单独线程来计时并触发定时是更为合理的方案。</p>
 <p>这里可以理解为何我们的计数器会有延迟：当到达指定时间（通过事件循环不断检测事件实现），产生一个  <code>timeout</code> 事件， 定时器就会将相应的回调函数插入<strong>任务队列</strong>尾部，真正的执行需要等到所有同步任务完成且任务队列之前的任务都被执行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">testSetTimeout</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> label = <span class="string">'setTimeout'</span>;</span><br><span class="line">  <span class="built_in">console</span>.time(label);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.timeEnd(label);</span><br><span class="line">  &#125;, <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++) &#123;&#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">  (function testSetTimeout() {
+    const label = &#39;setTimeout&#39;;
+    console.time(label);
+    setTimeout(() =&gt; {
+        console.timeEnd(label);
+    }, 10);
+    for(let i = 0; i &lt; 100000000; i++) {}
+  })();
+</code></pre>
 <p>输出结果：<code>setTimeout: 70.490966796875ms</code></p>
 </li>
 </ul>
@@ -98,4 +162,23 @@
 <li><a href="https://zhuanlan.zhihu.com/p/30134423" target="_blank" rel="noopener">chrome浏览器页面渲染工作原理浅析</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener">Concurrency model and Event Loop</a></li>
 </ol>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info">voya</span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info">http://www.voyax.meposts/c28f3d08/</span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../tags/JavaScript/">JavaScript</a></div></article><nav id="pagination"><div class="next-post pull-right"><a href="../../posts/c7f12724/"><span>2017.11 前端阅读清单</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">©2016 - 2018 By voya</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Hosted by - </span><a href="https://pages.coding.me/"><span>Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.3"></script><script src="/js/fancybox.js?version=1.3"></script><script src="/js/sidebar.js?version=1.3"></script><script src="/js/copy.js?version=1.3"></script><script src="/js/fireworks.js?version=1.3"></script><script src="/js/transition.js?version=1.3"></script><script src="/js/scroll.js?version=1.3"></script><script src="/js/head.js?version=1.3"></script></body></html>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 voya
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.32f029.js"></script><script src="/./vendor.ec1199.js"></script><script src="/./app.72d74b.js"></script>
+
+
+  </body>
+</html>

@@ -1,13 +1,69 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Caddy 快速实践 | voya</title><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.3"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>var GLOBAL = { 
-  root: '/',
-  algolia: {"appId":"TJ6WR04MZ3","apiKey":"81961c3645425e892e7caa399f73e5b2","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  localSearch: undefined
-} </script><link rel="icon" href="/favicon.ico"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地只用-Caddy"><span class="toc-number">1.</span> <span class="toc-text">本地只用 Caddy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#caddy-服务器配置"><span class="toc-number">3.</span> <span class="toc-text">caddy 服务器配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Caddyfile-文件"><span class="toc-number">3.1.</span> <span class="toc-text">Caddyfile  文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件格式"><span class="toc-number">3.1.1.</span> <span class="toc-text">文件格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多站点配置"><span class="toc-number">3.1.2.</span> <span class="toc-text">多站点配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac-环境配置"><span class="toc-number">4.</span> <span class="toc-text">Mac 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开机启动"><span class="toc-number">4.1.</span> <span class="toc-text">开机启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本配置"><span class="toc-number">4.2.</span> <span class="toc-text">基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义配置文件"><span class="toc-number">4.2.1.</span> <span class="toc-text">自定义配置文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动、停止、重启服务"><span class="toc-number">5.</span> <span class="toc-text">启动、停止、重启服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上线项目还请换回-nginx"><span class="toc-number">6.</span> <span class="toc-text">上线项目还请换回 nginx</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-07-26-075816%20.jpg"></div><div class="author-info__name text-center">voya</div><div class="author-info__description text-center">Reading, Collecting, Thinking and Doing</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="../../archives"><span class="pull-left">文章</span><span class="pull-right">150</span></a><a class="author-info-articles__tags article-meta" href="../../tags"><span class="pull-left">标签</span><span class="pull-right">32</span></a><a class="author-info-articles__categories article-meta" href="../../categories"><span class="pull-left">分类</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg);"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">voya</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">Caddy 快速实践</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-09-20</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1,207</span><span class="post-meta__separator">|</span><span>阅读时长: 5 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><p><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-20-082101.jpg" alt=""></p>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Caddy 快速实践 | voya</title>
+
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.ec1199.css"><link rel="stylesheet" href="/./app.72d74b.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地只用-Caddy"><span class="toc-number">1.</span> <span class="toc-text">本地只用 Caddy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#caddy-服务器配置"><span class="toc-number">3.</span> <span class="toc-text">caddy 服务器配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Caddyfile-文件"><span class="toc-number">3.1.</span> <span class="toc-text">Caddyfile  文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件格式"><span class="toc-number">3.1.1.</span> <span class="toc-text">文件格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多站点配置"><span class="toc-number">3.1.2.</span> <span class="toc-text">多站点配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac-环境配置"><span class="toc-number">4.</span> <span class="toc-text">Mac 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开机启动"><span class="toc-number">4.1.</span> <span class="toc-text">开机启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本配置"><span class="toc-number">4.2.</span> <span class="toc-text">基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义配置文件"><span class="toc-number">4.2.1.</span> <span class="toc-text">自定义配置文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动、停止、重启服务"><span class="toc-number">5.</span> <span class="toc-text">启动、停止、重启服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上线项目还请换回-nginx"><span class="toc-number">6.</span> <span class="toc-text">上线项目还请换回 nginx</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>Caddy 快速实践</h1>
+      <p><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-20-082101.jpg" alt=""></p>
 <p>Caddy 是一个可以<strong>真的</strong>非常方便安装、配置以及运行的 web 服务器，相比 Nginx 或者 Apache，Caddy 更适合我们快速搭建 web 服务器，可适合绝大大数项目需求。</p>
 <a id="more"></a>
 <h2 id="本地只用-Caddy"><a href="#本地只用-Caddy" class="headerlink" title="本地只用 Caddy"></a>本地只用 Caddy</h2><p>作为开发人员，我更关心开发效率，服务器等环境的部署确实不是擅长的，经常配置一个 <code>Nginx</code> 即使照着教程操作还是会出现各种莫名其妙的问题，或者一段时间后，发现 <code>Nginx</code>  竟然起不起来，网上还是各种不靠谱的 “解决方案”……</p>
@@ -22,42 +78,141 @@
 <li>支持各平台，安装简单</li>
 </ul>
 <p>具体还有哪些特性移步官网文档，Gaddy 还支持插件扩展，github 上也很活跃，前景看好，可以放心使用😉</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mac</span></span><br><span class="line">brew install caddy</span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="bash"># mac
+brew install caddy
+</code></pre>
 <p>可以直接从官网下载安装，下载的文件中还有一个 <code>init</code> 文件夹，里边有基本的配置 demo</p>
 <p>现在在任意一个目录下新建一个 <code>index.html</code> 文件，运行 <code>caddy</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir temp</span><br><span class="line">touch index.html</span><br><span class="line">vim index.html</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">mkdir temp
+touch index.html
+vim index.html
+</code></pre>
 <p><img src="http://oe54phg1r.bkt.clouddn.com/2017-09-20-15058977676119.jpg" alt=""></p>
 <p>保存，然后运行 <code>caddy</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caddy</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">caddy
+</code></pre>
 <p>访问 <a href="localhost:2015" target="_blank" rel="noopener">localhost:2015</a> 你可以看到服务器已经正常启动了</p>
 <p><img src="http://oe54phg1r.bkt.clouddn.com/2017-09-20-15058979215933.jpg" alt=""></p>
 <h2 id="caddy-服务器配置"><a href="#caddy-服务器配置" class="headerlink" title="caddy 服务器配置"></a>caddy 服务器配置</h2><p><code>caddy</code> 可以通过命令行<strong>传参</strong>也可通过 Caddyfile 进行配置，比如我们指定域名和端口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caddy -host localhost:8000</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">caddy -host localhost:8000
+</code></pre>
 <p>通过 Caddyfile 配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch Caddyfile</span><br><span class="line">vim Caddyfile</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">touch Caddyfile
+vim Caddyfile
+</code></pre>
 <p>Caddyfile 文件内容：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">localhost:</span><span class="number">8000</span></span><br></pre></td></tr></table></figure>
-<h3 id="Caddyfile-文件"><a href="#Caddyfile-文件" class="headerlink" title="Caddyfile  文件"></a>Caddyfile  文件</h3><p>caddy 默认将当前目录下的 Caddyfile 作为配置文件，通过 <code>-conf</code> 指定配置文件路径：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caddy -conf ../path/to/Caddyfile</span><br></pre></td></tr></table></figure>
+<pre><code>localhost:8000
+</code></pre><h3 id="Caddyfile-文件"><a href="#Caddyfile-文件" class="headerlink" title="Caddyfile  文件"></a>Caddyfile  文件</h3><p>caddy 默认将当前目录下的 Caddyfile 作为配置文件，通过 <code>-conf</code> 指定配置文件路径：</p>
+<pre><code class="bash">caddy -conf ../path/to/Caddyfile
+</code></pre>
 <h4 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h4><p>Caddyfile 是一个纯文本文件，由 <strong>地址</strong> 和<strong>指令</strong> 组成，看个复杂点的例子：</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">localhost</span><br><span class="line">gzip</span><br><span class="line">tls self_signed # 自签发证书</span><br><span class="line">proxy /api <span class="number">127.0.0.1:7005</span> # 反向代理</span><br><span class="line">log /var/log/caddy/access.log</span><br><span class="line">header /api &#123;</span><br><span class="line">    Access-Control-Allow-Origin  *</span><br><span class="line">    Access-Control-Allow-Methods <span class="string">"<span class="keyword">GET</span>, <span class="keyword">POST</span>, <span class="keyword">OPTIONS</span>"</span></span><br><span class="line">    -Server</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第一行是地址，之后就是指令了，如果一条指令有多个参数需要换行，用 <code>{}</code> 括起来就好，完整指令及解释请查看 <a href="https://caddyserver.com/docs" target="_blank" rel="noopener">文档</a></p>
+<pre><code>localhost
+gzip
+tls self_signed # 自签发证书
+proxy /api 127.0.0.1:7005 # 反向代理
+log /var/log/caddy/access.log
+header /api {
+    Access-Control-Allow-Origin  *
+    Access-Control-Allow-Methods &quot;GET, POST, OPTIONS&quot;
+    -Server
+}
+</code></pre><p>第一行是地址，之后就是指令了，如果一条指令有多个参数需要换行，用 <code>{}</code> 括起来就好，完整指令及解释请查看 <a href="https://caddyserver.com/docs" target="_blank" rel="noopener">文档</a></p>
 <h4 id="多站点配置"><a href="#多站点配置" class="headerlink" title="多站点配置"></a>多站点配置</h4><p>如果需要在一个 caddy 服务中启动多个站点，需要在域名后边加上 <code>{}</code>，将指令写到 <code>{}</code> 中：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysite<span class="selector-class">.com</span> &#123;</span><br><span class="line">    root /www/mysite.com</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sub<span class="selector-class">.mysite</span><span class="selector-class">.com</span> &#123;</span><br><span class="line">    root /www/sub<span class="selector-class">.mysite</span><span class="selector-class">.com</span></span><br><span class="line">    gzip</span><br><span class="line">    log ../access.log</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果这两个站点有通用的配置：</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysite.com, <span class="function"><span class="keyword">sub</span>.<span class="title">mysite</span>.<span class="title">com</span> </span>&#123;</span><br><span class="line">    gzip</span><br><span class="line">    …</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>很简单是吧，另外，Caddyfile 中使用环境变量也是可以的。</p>
+<pre><code>mysite.com {
+    root /www/mysite.com
+}
+
+sub.mysite.com {
+    root /www/sub.mysite.com
+    gzip
+    log ../access.log
+}
+</code></pre><p>如果这两个站点有通用的配置：</p>
+<pre><code>mysite.com, sub.mysite.com {
+    gzip
+    …
+}
+</code></pre><p>很简单是吧，另外，Caddyfile 中使用环境变量也是可以的。</p>
 <h2 id="Mac-环境配置"><a href="#Mac-环境配置" class="headerlink" title="Mac 环境配置"></a>Mac 环境配置</h2><p>先去 下载<a href="https://github.com/mholt/caddy/blob/master/dist/init/mac-launchd/com.caddyserver.web.plist" target="_blank" rel="noopener"> <code>.plist</code> 文件</a>，这是 <code>mac</code> 下的定时任务配置文件（未防口误，说明一下，是一个具体事件对应一个 <code>.plist</code>）</p>
-<h3 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ~/Download/com.caddyserver.web.plist /usr/<span class="built_in">local</span>/opt/caddy/</span><br><span class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/caddy/*.plist ~/Library/LaunchAgents</span><br></pre></td></tr></table></figure>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/<span class="built_in">local</span>/etc/caddy /usr/<span class="built_in">local</span>/etc/ssl/caddy /var/<span class="built_in">log</span>/caddy</span><br><span class="line">touch /usr/<span class="built_in">local</span>/opt/caddy/Caddyfile</span><br><span class="line">sudo chown -R  _www:_www /usr/<span class="built_in">local</span>/etc/caddy /var/<span class="built_in">log</span>/caddy</span><br><span class="line">sudo chmod 0750 /usr/<span class="built_in">local</span>/etc/ssl/caddy</span><br></pre></td></tr></table></figure>
+<h3 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h3><pre><code class="bash">cp ~/Download/com.caddyserver.web.plist /usr/local/opt/caddy/
+ln -sfv /usr/local/opt/caddy/*.plist ~/Library/LaunchAgents
+</code></pre>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><pre><code class="bash">mkdir -p /usr/local/etc/caddy /usr/local/etc/ssl/caddy /var/log/caddy
+touch /usr/local/opt/caddy/Caddyfile
+sudo chown -R  _www:_www /usr/local/etc/caddy /var/log/caddy
+sudo chmod 0750 /usr/local/etc/ssl/caddy
+</code></pre>
 <h4 id="自定义配置文件"><a href="#自定义配置文件" class="headerlink" title="自定义配置文件"></a>自定义配置文件</h4><p><strong>修改 <code>Caddyfile</code></strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/<span class="built_in">local</span>/etc/caddy/Caddyfile</span><br></pre></td></tr></table></figure>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//localhost &#123;</span></span><br><span class="line">    root <span class="meta-keyword">/var/</span>www</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>修改 <code>.plist</code> 文件</strong></p>
+<pre><code class="bash">sudo vim /usr/local/etc/caddy/Caddyfile
+</code></pre>
+<pre><code>http://localhost {
+    root /var/www
+}
+</code></pre><p><strong>修改 <code>.plist</code> 文件</strong></p>
 <p>因为是用 brew 安装，和官网上的配置有所差异，修改 <code>.plist</code> 文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>Label<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>Caddy<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>ProgramArguments<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/bin/caddy<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-agree<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-conf<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/etc/caddy/Caddyfile<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-root<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/var/www<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>EnvironmentVariables<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>CADDYPATH<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/etc/ssl/caddy<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>UserName<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>root<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>GroupName<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>wheel<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>InitGroups<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>RunAtLoad<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>KeepAlive<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Crashed<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>SoftResourceLimits<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>NumberOfFiles<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">integer</span>&gt;</span>8192<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>HardResourceLimits<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>WorkingDirectory<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/etc/ssl/caddy<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>StandardErrorPath<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/var/log/caddy/error.log<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>StandardOutPath<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/var/log/caddy/info.log<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="启动、停止、重启服务"><a href="#启动、停止、重启服务" class="headerlink" title="启动、停止、重启服务"></a>启动、停止、重启服务</h2><p>用 <code>brew</code> 安装的一个极大便利就是可以直接使用 <code>brew services</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start</span></span><br><span class="line">brew services start caddy</span><br><span class="line"></span><br><span class="line"><span class="comment"># stop</span></span><br><span class="line">brew services stop caddy</span><br><span class="line"></span><br><span class="line"><span class="comment"># restart</span></span><br><span class="line">brew services restart caddy</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+  &lt;key&gt;Label&lt;/key&gt;
+  &lt;string&gt;Caddy&lt;/string&gt;
+  &lt;key&gt;ProgramArguments&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;/usr/local/bin/caddy&lt;/string&gt;
+    &lt;string&gt;-agree&lt;/string&gt;
+    &lt;string&gt;-conf&lt;/string&gt;
+    &lt;string&gt;/usr/local/etc/caddy/Caddyfile&lt;/string&gt;
+    &lt;string&gt;-root&lt;/string&gt;
+    &lt;string&gt;/var/www&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;EnvironmentVariables&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;CADDYPATH&lt;/key&gt;
+    &lt;string&gt;/usr/local/etc/ssl/caddy&lt;/string&gt;
+  &lt;/dict&gt;
+
+  &lt;key&gt;UserName&lt;/key&gt;
+  &lt;string&gt;root&lt;/string&gt;
+  &lt;key&gt;GroupName&lt;/key&gt;
+  &lt;string&gt;wheel&lt;/string&gt;
+  &lt;key&gt;InitGroups&lt;/key&gt;
+  &lt;true/&gt;
+
+  &lt;key&gt;RunAtLoad&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;KeepAlive&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;Crashed&lt;/key&gt;
+    &lt;true/&gt;
+  &lt;/dict&gt;
+
+  &lt;key&gt;SoftResourceLimits&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;NumberOfFiles&lt;/key&gt;
+    &lt;integer&gt;8192&lt;/integer&gt;
+  &lt;/dict&gt;
+  &lt;key&gt;HardResourceLimits&lt;/key&gt;
+  &lt;dict/&gt;
+
+  &lt;key&gt;WorkingDirectory&lt;/key&gt;
+  &lt;string&gt;/usr/local/etc/ssl/caddy&lt;/string&gt;
+
+  &lt;key&gt;StandardErrorPath&lt;/key&gt;
+  &lt;string&gt;/var/log/caddy/error.log&lt;/string&gt;
+  &lt;key&gt;StandardOutPath&lt;/key&gt;
+  &lt;string&gt;/var/log/caddy/info.log&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre><h2 id="启动、停止、重启服务"><a href="#启动、停止、重启服务" class="headerlink" title="启动、停止、重启服务"></a>启动、停止、重启服务</h2><p>用 <code>brew</code> 安装的一个极大便利就是可以直接使用 <code>brew services</code>：</p>
+<pre><code class="bash"># start
+brew services start caddy
+
+# stop
+brew services stop caddy
+
+# restart
+brew services restart caddy
+</code></pre>
 <h2 id="上线项目还请换回-nginx"><a href="#上线项目还请换回-nginx" class="headerlink" title="上线项目还请换回 nginx"></a>上线项目还请换回 nginx</h2><p>caddy 虽然简单，但也还是有自身的问题。</p>
 <ol>
 <li>商业项目需要支付授权</li>
@@ -66,4 +221,23 @@
 <p> <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-20-124437.jpg" alt=""></p>
 </li>
 </ol>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info">voya</span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info">http://www.voyax.meposts/e38a6063/</span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</span></div></div><div class="post-meta__tag-list"></div></article><nav id="pagination"><div class="prev-post pull-left"><a href="../../posts/26b440f2/"><i class="fa fa-chevron-left">  </i><span>反向代理</span></a></div><div class="next-post pull-right"><a href="../../posts/5a12aef0/"><span>CSS 小白知识点－布局</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">©2016 - 2018 By voya</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Hosted by - </span><a href="https://pages.coding.me/"><span>Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.3"></script><script src="/js/fancybox.js?version=1.3"></script><script src="/js/sidebar.js?version=1.3"></script><script src="/js/copy.js?version=1.3"></script><script src="/js/fireworks.js?version=1.3"></script><script src="/js/transition.js?version=1.3"></script><script src="/js/scroll.js?version=1.3"></script><script src="/js/head.js?version=1.3"></script></body></html>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 voya
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.32f029.js"></script><script src="/./vendor.ec1199.js"></script><script src="/./app.72d74b.js"></script>
+
+
+  </body>
+</html>

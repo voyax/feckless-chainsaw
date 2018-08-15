@@ -1,18 +1,91 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>如何灵活在控制Flex Item在主轴上的布局 | voya</title><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.3"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>var GLOBAL = { 
-  root: '/',
-  algolia: {"appId":"TJ6WR04MZ3","apiKey":"81961c3645425e892e7caa399f73e5b2","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  localSearch: undefined
-} </script><link rel="icon" href="/favicon.ico"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先看一个案例："><span class="toc-number">1.</span> <span class="toc-text">先看一个案例：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么没有justify-self"><span class="toc-number">2.</span> <span class="toc-text">为什么没有justify-self</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【译】更多的例子"><span class="toc-number">3.</span> <span class="toc-text">【译】更多的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个flex-item居左，其余flex-item居右"><span class="toc-number">3.1.</span> <span class="toc-text">第一个flex item居左，其余flex item居右</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他实用场景"><span class="toc-number">3.2.</span> <span class="toc-text">其他实用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将flex-item放置在一个角上"><span class="toc-number">4.</span> <span class="toc-text">将flex item放置在一个角上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#水平、垂直居中"><span class="toc-number">5.</span> <span class="toc-text">水平、垂直居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#居中一个flex-item，-然后将第二个flex-item-放在第一个flex-item-和父元素的边界之间"><span class="toc-number">6.</span> <span class="toc-text">居中一个flex item， 然后将第二个flex item 放在第一个flex item 和父元素的边界之间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当相邻的flex-item尺寸不同时，如何居中"><span class="toc-number">7.</span> <span class="toc-text">当相邻的flex item尺寸不同时，如何居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#justify-content-space-same-这只是一个概念！！！别当真"><span class="toc-number">8.</span> <span class="toc-text">justify-content: space-same(这只是一个概念！！！别当真)</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-07-26-075816%20.jpg"></div><div class="author-info__name text-center">voya</div><div class="author-info__description text-center">Reading, Collecting, Thinking and Doing</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="../../archives"><span class="pull-left">文章</span><span class="pull-right">150</span></a><a class="author-info-articles__tags article-meta" href="../../tags"><span class="pull-left">标签</span><span class="pull-right">32</span></a><a class="author-info-articles__categories article-meta" href="../../categories"><span class="pull-left">分类</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://oe54phg1r.bkt.clouddn.com/blog/2017-09-26-2017-08-16-adam-whitlock-270558-cmp.jpg);"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">voya</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">如何灵活在控制Flex Item在主轴上的布局</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2016-07-19</time><span class="post-meta__separator">|</span><i class="fa fa-tag post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="../../tags/前端/">前端</a><a class="post-meta__categories" href="../../tags/CSS/">CSS</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1,313</span><span class="post-meta__separator">|</span><span>阅读时长: 5 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><h2 id="先看一个案例："><a href="#先看一个案例：" class="headerlink" title="先看一个案例："></a>先看一个案例：</h2><p><em>（这个例子最简单，但并非特别有针对性，更好的例子是三栏布局，第一栏左对齐，第二栏要求居中。）</em><br>一个页面的头部，经常看到的是最左边放上logo，右边是几个导航链接。</p>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>如何灵活在控制Flex Item在主轴上的布局 | voya</title>
+
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.ec1199.css"><link rel="stylesheet" href="/./app.72d74b.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先看一个案例："><span class="toc-number">1.</span> <span class="toc-text">先看一个案例：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么没有justify-self"><span class="toc-number">2.</span> <span class="toc-text">为什么没有justify-self</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【译】更多的例子"><span class="toc-number">3.</span> <span class="toc-text">【译】更多的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个flex-item居左，其余flex-item居右"><span class="toc-number">3.1.</span> <span class="toc-text">第一个flex item居左，其余flex item居右</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他实用场景"><span class="toc-number">3.2.</span> <span class="toc-text">其他实用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将flex-item放置在一个角上"><span class="toc-number">4.</span> <span class="toc-text">将flex item放置在一个角上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#水平、垂直居中"><span class="toc-number">5.</span> <span class="toc-text">水平、垂直居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#居中一个flex-item，-然后将第二个flex-item-放在第一个flex-item-和父元素的边界之间"><span class="toc-number">6.</span> <span class="toc-text">居中一个flex item， 然后将第二个flex item 放在第一个flex item 和父元素的边界之间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当相邻的flex-item尺寸不同时，如何居中"><span class="toc-number">7.</span> <span class="toc-text">当相邻的flex item尺寸不同时，如何居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#justify-content-space-same-这只是一个概念！！！别当真"><span class="toc-number">8.</span> <span class="toc-text">justify-content: space-same(这只是一个概念！！！别当真)</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>如何灵活在控制Flex Item在主轴上的布局</h1>
+      <h2 id="先看一个案例："><a href="#先看一个案例：" class="headerlink" title="先看一个案例："></a>先看一个案例：</h2><p><em>（这个例子最简单，但并非特别有针对性，更好的例子是三栏布局，第一栏左对齐，第二栏要求居中。）</em><br>一个页面的头部，经常看到的是最左边放上logo，右边是几个导航链接。</p>
 <p>采用Flexbox布局，可能这么写：</p>
 <p><strong>HTML</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span> = <span class="string">"header__logo logo"</span> <span class="attr">src</span> = <span class="string">"./img/logo.png"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span> = <span class="string">"nav"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"#"</span> &gt;</span>Link 1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"#"</span> &gt;</span>Link 2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      ……</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;div class = &quot;header&quot;&gt;
+  &lt;img class = &quot;header__logo logo&quot; src = &quot;./img/logo.png&quot; /&gt;
+
+  &lt;ul class = &quot;nav&quot;&gt;
+    &lt;li&gt;
+      &lt;a href = &quot;#&quot; &gt;Link 1&lt;/a&gt;
+      &lt;a href = &quot;#&quot; &gt;Link 2&lt;/a&gt;
+      ……
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
 <a id="more"></a>
-<p><strong>CSS</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>CSS</strong></p>
+<pre><code class="css">.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+</code></pre>
 <p>现在logo和导航在header中按照从左往右布局。<br>如何让导航在header的右端？</p>
 <h2 id="为什么没有justify-self"><a href="#为什么没有justify-self" class="headerlink" title="为什么没有justify-self"></a>为什么没有<code>justify-self</code></h2><p>上述问题的解决的方法很多，只是如果你习惯了align-self，会不会情不自禁联想到justify-self，可惜啊，并没有这个属性——因为没有必要存在这个属性，我们通过其他两个属性完全可以实现类似align-self的功能：</p>
 <ol>
@@ -36,7 +109,11 @@
 <li>先按照margin: 0 计算flex item的尺寸；</li>
 <li>将所有父元素的剩余空间赋值给margin（<code>margin</code>的优先级大于<code>justify-content</code>，以及<code>align-self</code>。这有一个类似的场景：<strong>如何计算图片尺寸</strong>）</li>
 </ol>
-<p>现在再看看如何修改我们上边的导航：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span>&#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在再看看如何修改我们上边的导航：</p>
+<pre><code class="css">.nav{
+  margin-left: auto;
+}
+</code></pre>
 <h2 id="【译】更多的例子"><a href="#【译】更多的例子" class="headerlink" title="【译】更多的例子"></a>【译】更多的例子</h2><p>注：<a href="http://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties/33856609#33856609" target="_blank" rel="noopener">原文请看stackoverflow上的回答</a></p>
 <h3 id="第一个flex-item居左，其余flex-item居右"><a href="#第一个flex-item居左，其余flex-item居右" class="headerlink" title="第一个flex item居左，其余flex item居右"></a>第一个flex item居左，其余flex item居右</h3><p><img src="http://7fvhf8.com1.z0.glb.clouddn.com/blog/flex/Um8DM.png"></p>
 <p><img src="http://7fvhf8.com1.z0.glb.clouddn.com/blog/flex/D3Vnv.png"></p>
@@ -49,9 +126,16 @@
 <p><img src="http://7fvhf8.com1.z0.glb.clouddn.com/blog/flex/lV9a0.png"></p>
 <p>在flex item中，<code>margin: auto</code> 相当于在flexbox上设置了<code>justify-center:center; align-items:center</code>。</p>
 <p>除了在<code>container</code>上应用如下样式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css">.container{
+  justify-content: center;
+  align-items: center;
+}
+</code></pre>
 <p>你可以直接在flex item上使用margin：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box56</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css">.box56{
+  margin: auto;
+}
+</code></pre>
 <p>当我们要居中一个大小超出父元素的子元素来说，利用<code>margin:auto</code>将非常有用(<a href="http://stackoverflow.com/questions/33454533/cant-scroll-to-top-of-flex-item-that-is-overflowing-container" target="_blank" rel="noopener">http://stackoverflow.com/questions/33454533/cant-scroll-to-top-of-flex-item-that-is-overflowing-container</a>)</p>
 <blockquote>
 <p>译者注：在flexbox中，当子元素超出了父元素，而且我们采用了<code>align-items: auto</code>和<code>justify-content: center</code>进行居中，会出现超出部门内容不可见的问题。比如说，flex item的高度是500px,而container高度是300；正常的情况是我们拉动垂直方向的滚动条，能够浏览flex item的全部内容；<br>但实际上是，你只能看到flex item的部分内容，顶部的内容是看不到的（0-100这一部分），不管你怎么拉动滚动条（如果不好理解，自己写代码试试就知道了）。其中的原因是设置<code>justify-content</code>和<code>align-items</code>居中后，即使flex item超出container还是保持居中。</p>
@@ -78,4 +162,23 @@
 </ul>
 <p>来来来，用伪元素解决这个问题：</p>
 <p><img src="http://7fvhf8.com1.z0.glb.clouddn.com/blog/flex/Jjw9w.png"></p>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info">voya</span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info">http://www.voyax.meposts/64197/</span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../tags/前端/">前端</a><a class="post-meta__tags" href="../../tags/CSS/">CSS</a></div></article><nav id="pagination"><div class="prev-post pull-left"><a href="../../posts/1758/"><i class="fa fa-chevron-left">  </i><span>atom代码补全snippets配置</span></a></div><div class="next-post pull-right"><a href="../../posts/20965/"><span>ife前端任务-定位和居中</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">©2016 - 2018 By voya</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Hosted by - </span><a href="https://pages.coding.me/"><span>Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.3"></script><script src="/js/fancybox.js?version=1.3"></script><script src="/js/sidebar.js?version=1.3"></script><script src="/js/copy.js?version=1.3"></script><script src="/js/fireworks.js?version=1.3"></script><script src="/js/transition.js?version=1.3"></script><script src="/js/scroll.js?version=1.3"></script><script src="/js/head.js?version=1.3"></script></body></html>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 voya
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.32f029.js"></script><script src="/./vendor.ec1199.js"></script><script src="/./app.72d74b.js"></script>
+
+
+  </body>
+</html>

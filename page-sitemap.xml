@@ -7,8 +7,15 @@
     </url>
     
     <url>
-        <loc>http://www.voyax.me/tags/</loc>
-        <lastmod>2017-08-18T03:28:55.000Z</lastmod>
+        <loc>http://www.voyax.me/categories/</loc>
+        <lastmod>2018-08-11T10:21:15.746Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.voyax.me/about/index-1.html</loc>
+        <lastmod>2018-08-10T07:37:36.776Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -23,13 +30,6 @@
     <url>
         <loc>http://www.voyax.me/Tutorial/</loc>
         <lastmod>2017-07-26T06:59:41.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.voyax.me/categories/index-1.html</loc>
-        <lastmod>2017-07-26T06:58:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -51,13 +51,6 @@
     <url>
         <loc>http://www.voyax.me/%E6%96%87%E7%AB%A0%E5%BD%92%E6%A1%A3/</loc>
         <lastmod>2017-06-16T09:05:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.voyax.me/categories/</loc>
-        <lastmod>2016-08-12T12:59:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
