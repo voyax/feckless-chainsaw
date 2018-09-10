@@ -58,6 +58,40 @@
         <ul class="article-list">
         
           <li>
+            <a href="../../posts/38426/">
+              <h2 class="title">
+                关于ES6中let关键字的疑惑
+                <small>2017.06.18</small>
+              </h2>
+            </a>
+            <div class="excerpt"><p>一段熟悉的代码：</p>
+<pre><code class="javascript">function createFunctions(){
+    var result = new Array();
+
+    for(var i = 0;i &lt; 10;i++){
+        result[i] = function(){
+            console.log(i);
+        };
+    }
+    return result;
+}
+
+var functions = createFunctions();
+
+functions[2](); //10
+</code></pre>
+<p>上述代码输出结果为10。</p>
+<p>觉得理所应当或者有所疑惑都很正常，请继续往下看：<br></div>
+              <footer class="article-footer">
+                <div class="tags">
+                  
+                    <a class="tag" href="../../tags/JavaScript/">JavaScript</a>
+                  
+                </div>
+              </footer>
+          </li>
+        
+          <li>
             <a href="../../posts/12846/">
               <h2 class="title">
                 函数表达式-JavaScript
@@ -133,21 +167,6 @@
                 <div class="tags">
                   
                     <a class="tag" href="../../tags/AngularJS/">AngularJS</a>
-                  
-                </div>
-              </footer>
-          </li>
-        
-          <li>
-            <a href="../../posts/27048/">
-              <h2 class="title">
-                有时候，我已不想说话
-                <small>2017.06.18</small>
-              </h2>
-            </a>
-            <div class="excerpt"></div>
-              <footer class="article-footer">
-                <div class="tags">
                   
                 </div>
               </footer>
