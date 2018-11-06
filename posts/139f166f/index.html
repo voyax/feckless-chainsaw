@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>JavaScript 起手式之作用域 Scope | voya</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.icon">
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.bb7611.css"><link rel="stylesheet" href="/./app.590fd5.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域-Scope"><span class="toc-number">1.</span> <span class="toc-text">作用域 Scope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#词法作用域"><span class="toc-number">2.</span> <span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数作用域、块级作用域"><span class="toc-number">3.</span> <span class="toc-text">函数作用域、块级作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量提升"><span class="toc-number">3.1.</span> <span class="toc-text">变量提升</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本概念"><span class="toc-number">3.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数声明"><span class="toc-number">3.1.2.</span> <span class="toc-text">函数声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#临时死区-temporal-dead-zone"><span class="toc-number">3.1.3.</span> <span class="toc-text">临时死区 temporal dead zone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最佳实践"><span class="toc-number">3.1.4.</span> <span class="toc-text">最佳实践</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">4.</span> <span class="toc-text">闭包</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>JavaScript 起手式之作用域 Scope</h1>
+      <h2 id="作用域-Scope"><a href="#作用域-Scope" class="headerlink" title="作用域 Scope"></a>作用域 Scope</h2><p>谈到作用域的时候，希望大家不要有任何负担，这是一个非常简单的概念。难不在概念本身，而在于清楚地知道在一些设计模式和模块中，作用域扮演的重要角色。</p>
+<p>什么是作用域：定义变量可访问性的一套规则。当定义了很多变量，我们终极关心的是这个变量的值是什么，在什么地方可以访问，这正是作用域干的事情。</p>
+<a id="more"></a>
+<p>如果觉得上诉说法不放心，为节省时间，推荐直接查阅英文<a href="https://en.wikipedia.org/wiki/Scope_(computer_science" target="_blank" rel="noopener">维基百科</a>)：</p>
+<blockquote>
+<p>In computer programming, the scope of a name binding – an association of a name to an entity, such as a variable – is the region of a computer program where the binding is valid: where the name can be used to refer to the entity. Such a region is referred to as a scope block. In other parts of the program the name may refer to a different entity (it may have a different binding), or to nothing at all (it may be unbound).</p>
+</blockquote>
+<p>作用域有两种主要的工作模型：一种是大多数编程语言（包括 JavaScript）采用的词法作用域(Lexical Scope)，另外一种是动态作用域（Bash，Perl …）</p>
+<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><p>JavaScript 采用词法作用域，词法作用域的特点是作用域在词法分析（Lexing）阶段确定（不考虑 <code>eval</code>, <code>with</code>），即在查找变量时，依据的是代码的书写位置，和调用位置无关。看下面代码：</p>
+<pre><code class="javascript">function foo(){
+  console.log(a);
+}
+
+function bar(){
+  var a = 3;
+  foo();
+}
+
+var a = 2;
+
+bar(); // 2
+</code></pre>
+<ol>
+<li>执行 <code>foo</code> ，查找 <code>foo</code> 的作用域，没有变量 <code>a</code></li>
+<li>沿着作用域链，查找 <code>foo</code> 的上一层作用域（全局作用域）,发现变量 <code>a = 2</code></li>
+<li>输出结果 <code>2</code></li>
+</ol>
+<p><strong>如果是动态作用域呢？</strong><br>动态作用域是基于调用栈的，在函数调用时确定：<code>foo</code> 中查找不到 <code>a</code>；沿着调用栈查找，<code>foo</code> 是在 <code>bar</code> 中调用，于是在 <code>bar</code> 的作用域中查找 <code>a</code>，找到值为 3 的变量 <code>a</code>。</p>
+<p>词法作用域是理解 <code>JavaScript</code> 中非常重要的概念；无论作用域嵌套了多少层，调用多复杂，你只需要先找函数定义的地方，然后根据代码的书写顺序，一层一层往外找。最后借用<a href="https://github.com/mqyqingfeng/Blog/issues/3" target="_blank" rel="noopener">mqyqingfeng</a>的一个例子：</p>
+<pre><code class="javascript">var scope = &quot;global scope&quot;;
+function checkscope(){
+    var scope = &quot;local scope&quot;;
+    function f(){
+        return scope;
+    }
+    return f();
+}
+checkscope();
+</code></pre>
+<pre><code class="javascript">var scope = &quot;global scope&quot;;
+function checkscope(){
+    var scope = &quot;local scope&quot;;
+    function f(){
+        return scope;
+    }
+    return f;
+}
+checkscope()();
+</code></pre>
+<blockquote>
+<p>可以通过 <code>eval</code> 和 <code>with</code> 欺骗词法，但不推荐在实际开发中使用，感兴趣可阅读《你不知道的JavaScript 上卷》2.2 章。</p>
+</blockquote>
+<h2 id="函数作用域、块级作用域"><a href="#函数作用域、块级作用域" class="headerlink" title="函数作用域、块级作用域"></a>函数作用域、块级作用域</h2><p>对于学过 C、Java 等块作用域的同学来说，这个地方其实没有知识点；但 JavaScript 的块作用域，可以牵扯出闭包，ES6，this 等知识点，所以在此罗嗦一下，希望大家有自己的理解。先看一段经典代码：</p>
+<pre><code class="javascript">for(var i = 0; i &lt; 10; i++) {
+  setTimeout(() =&gt; console.log(i), 1000);
+}
+</code></pre>
+<p>这段代码会连续打印10次“10”。原因很简单，<code>setTimeout</code> 中的函数并不会马上执行，1s 后放入任务队列，然后等待执行（想一想你是否清楚 <code>setTimeout</code> 的执行过程），真正执行 <code>setTimeout</code> 的 function 时，<code>i = 10</code>。</p>
+<p>如果想输出 0~9，es6之前我们通常使用闭包来解决，而现在我们直接使用 es6 支持的块作用域来解决：</p>
+<pre><code class="javascript">for(var i = 0; i &lt; 10; i++) {
+  let j = i;
+  setTimeout(() =&gt; console.log(j), 1000);
+}
+</code></pre>
+<p>在循环体中通过 <code>let</code> 声明块级作用域变量（本质上这是将块转换为一个可以被关闭的作用域），保证了setTimeou中的函数执行时是独立的变量，而不是引用的同一个变量。</p>
+<p>再精简一点就是下面这个样子了：</p>
+<pre><code class="javascript">for(let i = 0; i &lt; 10; i++) {
+  setTimeout(() =&gt; console.log(i), 1000);
+}
+</code></pre>
+<blockquote>
+<p>每次迭代，<code>i</code> 都是被重新声明的全新变量，只是其初始值是上一次迭代的值。</p>
+</blockquote>
+<p>最后看看闭包的解决方式：</p>
+<pre><code class="javascript">for(var i = 0; i &lt; 10; i++) {
+  ((i) =&gt; {
+    setTimeout(() =&gt; console.log(i), 1000);
+  })(i);
+}
+</code></pre>
+<blockquote>
+<p>思考： 分别用 <code>setTimeout</code> 和 <code>setInterval</code> 改写上面的代码，每隔 1s 打印一次。</p>
+</blockquote>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>变量提升听起来是一个很高级的东西，但需要注意这并不是一个好的实践方式。</p>
+<blockquote>
+<p>大一学习C语言的时候，老师对我们的代码格式有非常严格的要求，<code>int i = 0</code> 这样代码是不被允许的</p>
+</blockquote>
+<pre><code class="javascript">console.log(a); // undefined
+var a = 2;
+foo(); // foo
+function foo(){
+  return &#39;foo&#39;;
+}
+</code></pre>
+<p>由于变量提升，上面的代码实际会被理解成下面的形式：</p>
+<pre><code class="javascript">function foo(){
+  return &#39;foo&#39;;
+}
+var a;
+console.log(a);
+a = 2;
+foo();
+</code></pre>
+<h4 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h4><p>上面的代码你注意的一点是，函数声明和变量声明都会被提升，但是函数是先于变量的；思考下面的代码：</p>
+<pre><code class="javascript">foo() // 1
+var foo;
+
+function foo(){
+  console.log(1);
+}
+
+foo = function(){
+  console.log(2);
+}
+</code></pre>
+<p>虽然 <code>var foo</code> 在 <code>function foo()...</code> 之前，但是由于函数声明被提升到变量之前，所以<code>var foo</code> 反而因为重复声明被忽略。</p>
+<h4 id="临时死区-temporal-dead-zone"><a href="#临时死区-temporal-dead-zone" class="headerlink" title="临时死区 temporal dead zone"></a>临时死区 temporal dead zone</h4><pre><code class="javascript">console.log(a) // ReferenceError: b is not defined
+let a = 2;
+</code></pre>
+<p>当我们使用 <code>let</code> 或者<code>const</code> 就出现了所谓的临时死区。临时死区并非否决了变量提升，只是在临时死区内，变量是无法访问的。</p>
+<p>通过对比 <code>var</code> 和 <code>let</code> 的解析过程，来看看到底区别在哪：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwysaeojorj30rr0oa0tr.jpg" alt=""><br><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fwysbe6cpyj30rr0p4wfy.jpg" alt=""></p>
+<p>在<code>let</code>的声明和初始化阶段之间的就是临时死区，当我们在初始化之前去访问let声明的变量，就会抛出 <code>ReferenceError</code>。但这和变量提升是两个维度，所以不要被一些表面的东西混淆。</p>
+<blockquote>
+<p>思考：let 尚且如此，请问 const， class 怎么样呢</p>
+</blockquote>
+<h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><p>这些概念看起来花哨，但你只需要保持良好的代码风格就不用处处小心，“哦，这个地方是不是有变量提升，重复声明在哪被覆盖了…”。</p>
+<ul>
+<li>永远先声明，再使用变量</li>
+<li>一个作用域内不要重复声明</li>
+</ul>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包我觉得难的不是概念，而在于合理运用。所以这里我不打算过多解释闭包，理解闭包的精华在于<strong>作用域</strong>和<strong>模块</strong>，这些之后我会以实际案例再分享出来，这里摘录书中的一段解释作为定义就好了：</p>
+<blockquote>
+<p>当函数可以记住并访问所在的词法作用域，即使函数是在当前词法作用域之外执行，这时 就产生了闭包 《你不知道的JavaScript（上卷）》第一部分第5章</p>
+</blockquote>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.aacdc9.js"></script><script src="/./vendor.bb7611.js"></script><script src="/./app.590fd5.js"></script>
+
+
+  </body>
+</html>
