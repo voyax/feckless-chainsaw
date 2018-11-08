@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>写出优雅的 git commit message | voya</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.icon">
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.bb7611.css"><link rel="stylesheet" href="/./app.590fd5.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#commit-message-格式"><span class="toc-number">1.</span> <span class="toc-text">commit message 格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#commit-message-type"><span class="toc-number">1.1.</span> <span class="toc-text">commit message type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动生成符合规范的-message"><span class="toc-number">1.2.</span> <span class="toc-text">自动生成符合规范的 message</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#校验-commit-message"><span class="toc-number">2.</span> <span class="toc-text">校验 commit message</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#commitlint"><span class="toc-number">2.1.</span> <span class="toc-text">commitlint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#husky"><span class="toc-number">2.2.</span> <span class="toc-text">husky</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成-changelog"><span class="toc-number">3.</span> <span class="toc-text">生成 changelog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源链接"><span class="toc-number">4.</span> <span class="toc-text">资源链接</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>写出优雅的 git commit message</h1>
+      <h2 id="commit-message-格式"><a href="#commit-message-格式" class="headerlink" title="commit message 格式"></a>commit message 格式</h2><p>为什么我们每次提交都要写 commit message，不写行不行。<code>git</code> 的本职在于版本管理，“管理”这两个字无论衍生出多少技能，终究脱离不了<strong>增、删、改、查</strong>，其中<strong>查</strong>是基础。所以当你哪一天需要查找之前某次提交时，<code>commit message</code> 就不像你在 <code>commit</code> 时随手一写那样无足轻重了，你想处乱不惊，游刃有余必须有它。</p>
+<p>commit message 我们使用 <a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines" target="_blank" rel="noopener">Angular</a> 的规范，格式如下：</p>
+<pre><code class="html">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+&lt;BLANK LINE&gt;
+&lt;body&gt;
+&lt;BLANK LINE&gt;
+&lt;footer&gt;
+</code></pre>
+<a id="more"></a>
+<p>由 <code>header</code>，<code>body</code>, <code>footer</code> 三部分组成，其中 <code>header</code> 是必须提供的（同时也是我们最关注的）；<code>body</code> 和 <code>footer</code> 可不填；简单说一下三部分的职能：</p>
+<ul>
+<li>header: 简要说明修改了什么</li>
+<li>body: 说明为何作出修改，修改前和修改后的差异</li>
+<li>footer: Breaking Changes，以及此次更新对应的 issues</li>
+</ul>
+<blockquote>
+<p>完整的说明和解释请参考 Angular 提供的<a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#" target="_blank" rel="noopener">文档</a></p>
+</blockquote>
+<h3 id="commit-message-type"><a href="#commit-message-type" class="headerlink" title="commit message type"></a>commit message type</h3><p>合理的 <code>type</code> 非常方便做日后的回溯和查找，<code>type</code> 有且仅有如下七类：</p>
+<ul>
+<li>feat: A new feature</li>
+<li>fix: A bug fix</li>
+<li>docs: Documentation only changes</li>
+<li>style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</li>
+<li>refactor: A code change that neither fixes a bug nor adds a feature</li>
+<li>perf: A code change that improves performance</li>
+<li>test: Adding missing or correcting existing tests</li>
+<li>chore: Changes to the build process or auxiliary tools and libraries such as documentation generation</li>
+</ul>
+<h3 id="自动生成符合规范的-message"><a href="#自动生成符合规范的-message" class="headerlink" title="自动生成符合规范的 message"></a>自动生成符合规范的 message</h3><p>为了提高效率和降低犯错概率，使用自动化工具来帮助我们生成 <code>commit message</code>，具体设置如下：</p>
+<p>安装：</p>
+<pre><code class="bash">npm install -D commitizen cz-conventional-changelog
+</code></pre>
+<p>其中，<code>commitizen</code> 为我们提供了命令行工具，它提供了 <code>git cz</code> 来代替 <code>git commit</code>；<br><code>cz-conventional-changelog</code> 则作为 commitizen 的一个 adapter，它提供了标准的 angular 规范。</p>
+<p>编辑 <code>package.json</code>：</p>
+<pre><code class="json">&quot;script&quot;: {
+  ...
+},
+&quot;config&quot;: {
+  &quot;commitizen&quot;: {
+    &quot;path&quot;: &quot;node_modules/cz-conventional-changelog&quot;
+  }
+}
+</code></pre>
+<p>现在运行 <code>git cz</code> 试试：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fx0y2xb7b0j313o0h4aat.jpg" alt=""></p>
+<h2 id="校验-commit-message"><a href="#校验-commit-message" class="headerlink" title="校验 commit message"></a>校验 commit message</h2><p>对于不符规范的 commit message，我们拒绝其提交。那自然用到 <code>husky</code>，而具体的校验交给 <code>commitlint</code>。具体设置如下：</p>
+<h3 id="commitlint"><a href="#commitlint" class="headerlink" title="commitlint"></a>commitlint</h3><p>安装：</p>
+<pre><code class="bash">npm install -D @commitlint/cli @commitlint/config-conventional
+</code></pre>
+<p>项目根目录创建 <code>.commitlintrc.js</code>，文件内容如下：</p>
+<pre><code class="javascript">module.exports = {
+  extends: [&#39;@commitlint/config-conventional&#39;],
+};
+</code></pre>
+<h3 id="husky"><a href="#husky" class="headerlink" title="husky"></a>husky</h3><p>安装:</p>
+<pre><code class="bash">npm install -D husky
+</code></pre>
+<p>编辑 <code>package.json</code>：</p>
+<pre><code class="json">&quot;husky&quot;: {
+  &quot;hooks&quot;: {
+    &quot;commit-msg&quot;: &quot;commitlint -E HUSKY_GIT_PARAMS&quot;
+  }
+}
+</code></pre>
+<h2 id="生成-changelog"><a href="#生成-changelog" class="headerlink" title="生成 changelog"></a>生成 changelog</h2><p>按照规范来，生成 changelog 也自然顺理成章：</p>
+<pre><code class="bash">npm i --save-dev standard-version
+</code></pre>
+<p>修改 <code>package.json</code>：</p>
+<pre><code class="json">{
+  &quot;scripts&quot;: {
+    &quot;release&quot;: &quot;standard-version&quot;
+  }
+}
+</code></pre>
+<p>运行 <code>npm run release</code>，你会发现自动帮你生成好了就 <code>CHANGELOG.md</code>，并且打好 <code>tag</code>。具体如下：</p>
+<ol>
+<li>bumps the version in metadata files (package.json, composer.json, etc).</li>
+<li>uses conventional-changelog to update CHANGELOG.md</li>
+<li>commits package.json (et al.) and CHANGELOG.md</li>
+<li>tags a new release</li>
+</ol>
+<p>如果不希望 <code>standard-version</code> 自动生成版本号，也可以自定义，使用 <code>--release-as</code>：</p>
+<pre><code class="bash">npm run release -- --release-as 1.1.0
+</code></pre>
+<h2 id="资源链接"><a href="#资源链接" class="headerlink" title="资源链接"></a>资源链接</h2><ul>
+<li><a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines" target="_blank" rel="noopener">Git Commit Guidelines</a></li>
+<li><a href="https://github.com/marionebl/commitlint" target="_blank" rel="noopener">commitlint</a></li>
+<li><a href="https://github.com/conventional-changelog/standard-version" target="_blank" rel="noopener">standard-version</a></li>
+</ul>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.aacdc9.js"></script><script src="/./vendor.bb7611.js"></script><script src="/./app.590fd5.js"></script>
+
+
+  </body>
+</html>
