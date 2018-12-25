@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv=”Cache-Control” content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>JavaScript 起手式之 this | voya</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.icon">
+  
+
+
+
+<link rel="stylesheet" href="/./vendor.ec1199.css"><link rel="stylesheet" href="/./app.5ed5af.css">
+
+
+</head>
+  <body>
+    <header class="main-header">
+  <div class="container">
+    <a href="/"" class="logo">
+      <img src="http://oe54phg1r.bkt.clouddn.com/blog/2017-07-26-075816.jpg" alt="voya" class="logo-img">
+    </a>
+    <span class="nav-separator"></span>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索文章"><input type="hidden" name="sitesearch" value="http://www.voyax.me"></form>
+    <a href="javascript:void(0);" class="nav-icon">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-link ">
+            <a href="../../index.html">首页</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../archives/">归档</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../categories">分类</a>
+          </li>
+        
+          <li class="nav-link ">
+            <a href="../../about">关于</a>
+          </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="page--article">
+  
+    <div class="toc-container">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么情况下需要使用-this"><span class="toc-number">1.</span> <span class="toc-text">什么情况下需要使用 this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-到底是指什么（有何作用）"><span class="toc-number">2.</span> <span class="toc-text">this 到底是指什么（有何作用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数中的-this"><span class="toc-number">3.</span> <span class="toc-text">函数中的 this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐式绑定：对象方法中的-this"><span class="toc-number">4.</span> <span class="toc-text">隐式绑定：对象方法中的 this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示绑定-call-apply-new"><span class="toc-number">5.</span> <span class="toc-text">显示绑定 call, apply, new</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-number">6.</span> <span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-的本质"><span class="toc-number">7.</span> <span class="toc-text">this 的本质</span></a></li></ol>
+      <div class="toc-tip">Table of Contents ▼</div>
+    </div>
+  
+
+
+  <div class="container">
+    <article>
+      <h1>JavaScript 起手式之 this</h1>
+      <p>JavaScript 中的 this 是一个比较难的概念，既不同于OOP，也似乎没有一条清晰唯一的判断标准，而且说不定你还经常用其他方法跳过这个坑；很早以前我就想写一篇总结this的笔记，总是觉得不放心，踩了无数坑后才痛下决心一定要知其所以然。阅读前，先思考一个问题，到底什么情况下需要使用 this ？</p>
+<a id="more"></a>
+<h2 id="什么情况下需要使用-this"><a href="#什么情况下需要使用-this" class="headerlink" title="什么情况下需要使用 this"></a>什么情况下需要使用 this</h2><p>面向对象编程</p>
+<pre><code class="javascript">function Person(firstName, lastName){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.showFullName = function(){
+    return `${this.firstName} ${lastName}`;
+  }
+}
+
+const p = new Person(&#39;foo&#39;, &#39;bar&#39;);
+p.showFullName();
+</code></pre>
+<p><code>JavaScript</code> 和其他 OOP 语言有较大差别，但面向对象的思想都是一样，对数据进行抽象，高内聚低耦合，更符合人类的思考方式。</p>
+<blockquote>
+<p>16年创业期间，突然发现函数式编程大火，其实不管是面向对象还是函数式编程，都有自己的优点，不必神话某一种模式，在实践中，学会灵活运用，皆为我用。</p>
+</blockquote>
+<p>再看一个链式调用（级联)的例子：</p>
+<pre><code class="javascript">let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+  },
+  down() {
+    this.step--;
+  },
+  showStep() { // shows the current step
+    alert(this.step);
+  }
+};
+
+ladder.up();
+ladder.up();
+ladder.down();
+ladder.showStep(); // 1
+</code></pre>
+<p>改成链式调用：</p>
+<pre><code class="javascript">let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down(){
+    this.step--;
+    return this;
+  },
+  showStep() {
+    alert(this.step);
+  }
+}
+
+ladder.up().up().down().showStep(); // 1
+</code></pre>
+<p>这个例子可能没有太多感觉，但是在遇到回调嵌套时，链式调用的好处就提现出来了。</p>
+<h2 id="this-到底是指什么（有何作用）"><a href="#this-到底是指什么（有何作用）" class="headerlink" title="this 到底是指什么（有何作用）"></a>this 到底是指什么（有何作用）</h2><p>上面的两个例子虽然简单，但是都可以引出一个问题，this 在其中扮演了什么角色。为什么 <code>this.showFullName()</code> 能直接使用 <code>firstName</code> 和 <code>lastName</code> ，为何 <code>ladder.up().up().down()</code> 记住了之前的操作。或者说，不用 <code>this</code> 如何重写上面的代码。</p>
+<p>大学接触面向对象时，我认为自己已经准确理解了 <code>this</code>，但在 JS 中总觉得没摸到根本，有一次想到上面的问题后，才回头重新思考：我们之所以用 <code>this</code>，是因为 <code>this</code> 可以直接帮我们引用对象无须手动传递，但在 JS 中，this 是动态不确定的，需要仔细分析指向的对象是否符合预期。</p>
+<p>执行上下文由 3 部分组成：作用域链，变量对象，this。如果抽象为一个对象：</p>
+<pre><code class="javascript">executionContextObj = {
+  &#39;scopeChain&#39;: { /* variableObject + all parent execution context&#39;s variableObject */ },
+  &#39;variableObject&#39;: { /* function arguments / parameters, inner variable and function declarations */ },
+  &#39;this&#39;: {},
+}
+</code></pre>
+<p>理解 this 不能不讲执行上下文，这篇文章无法囊括所有知识点，相关内容可阅读<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/" target="_blank" rel="noopener">《What is the Execution Context &amp; Stack in JavaScript?》</a>。</p>
+<h2 id="函数中的-this"><a href="#函数中的-this" class="headerlink" title="函数中的 this"></a>函数中的 this</h2><p>遇到 this 时，你会想：“这个 this 指向的是哪个对象”。但是如果 this 单独出现在函数中，this 指向什么？</p>
+<pre><code class="javascript">function foo() {
+  var a = 2;
+  this.bar();
+}
+
+function bar() {
+  console.log(this.a);
+}
+
+foo(); // undefined
+</code></pre>
+<blockquote>
+<p>摘自《你不知道的JavaScript上卷》第二部分第1章</p>
+</blockquote>
+<p>和其他语言不同，js 中的 this 可单独出现在函数中：独立函数调用。</p>
+<p>在非严格模式中，this 被绑定到全局对象（浏览器中即 <code>window</code>）；而严格模式中，this 则是 <code>undefined</code>。</p>
+<p>上面的例子时用来混淆视听的，很久以前我看过一篇讲解 this 的文章，当时就记住了”谁调用的这个函数，this 就指向谁“，若以此为标准，函数之间的调用似乎就有疑惑了。有时候想想，其实这是非常有意思的，我们一直试图去找 this，但却忽略了它本身的意义：隐式传递上下文。对于单纯的函数调用，仅仅是输入输出，设计上作为数据的转换或者生成，不需要上下文的传递。</p>
+<blockquote>
+<p>Please note that usually a call of a function that uses <code>this</code> without an object is not normal, but rather a programming mistake. If a function has <code>this</code>, then it is usually meant to be called in the context of an object. ——<a href="http://javascript.info/object-methods" target="_blank" rel="noopener">《The Modern Javascript Tutorial》</a></p>
+</blockquote>
+<pre><code class="javascript">// strict mode
+function foo() {
+  &quot;use strict&quot;;
+  console.log(this.a);
+}
+
+var a = 2;
+foo(); // TypeError: Cannot read property &#39;a&#39; of undefined
+
+// non-strict mode
+function bar() {
+  console.log(this.a);
+}
+
+var a = 2;
+bar(); // 2
+</code></pre>
+<h2 id="隐式绑定：对象方法中的-this"><a href="#隐式绑定：对象方法中的-this" class="headerlink" title="隐式绑定：对象方法中的 this"></a>隐式绑定：对象方法中的 this</h2><pre><code class="javascript">var a = 1;
+function foo() {
+  console.log(this.a);
+}
+
+var obj = {
+  a: 2,
+  foo,
+  bar: function() {
+    console.log(this.a);
+  },
+};
+
+obj.foo(); // 2
+obj.bar(); // 2
+</code></pre>
+<p>foo 和 bar 的定义方式不同，但在调用时，this 都指向了 obj。this 和函数声明的位置无关，只取决于函数的调用方式。</p>
+<p>换种方式调：　</p>
+<pre><code class="javascript">const bar = obj.bar;
+bar(); // 1
+</code></pre>
+<p>bar 和 obj.bar 都是同一个函数的引用，但调用方式却有所不同，<code>bar()</code>相当于我们直接运行了这个函数，非严格模式下，this 指向了 <code>window</code>。</p>
+<p>同样的道理，思考一下定时器中的 this：</p>
+<pre><code class="javascript">var a = 1;
+const obj = {
+  a: 2,
+  foo: function() {
+    setTimeout(function() {
+      console.log(this.a);
+    }, 0);
+  },
+};
+obj.foo(); // 1;
+</code></pre>
+<p>上面的代码，以前我会这么解释：setTimeout 中的函数被放到任务队列中执行，脱离了原本的上下文，实际上就相当于在全局 <code>window</code> 下运行。但是，《你不知道的JavaScript》中的解释我觉得更为透彻：</p>
+<blockquote>
+<p>参数传递其实就是一种隐式赋值，因此我们传入函数时也会被隐式赋值</p>
+</blockquote>
+<p>回调函数改变了本身预期的 <code>this</code> ，比如异步请求的回调，除了使用 <code>that</code>，JavaScript 本身还提供了手动绑定this的方法：<code>call</code>，<code>apply</code> 。</p>
+<h2 id="显示绑定-call-apply-new"><a href="#显示绑定-call-apply-new" class="headerlink" title="显示绑定 call, apply, new"></a>显示绑定 call, apply, new</h2><p><strong>call, apply, bind</strong></p>
+<p><code>Function.prototype.call</code> 和 <code>Function.prototype.apply</code> 接收两个参数，第一个参数是 object，强制把 <code>this</code> 绑定到这个对象上：</p>
+<pre><code class="javascript">function foo() {
+  console.log(this.a);
+}
+const obj = {
+  a: 2,
+};
+const bar = function() {
+  return foo.apply(obj);
+}
+console.log(bar()); // 2
+</code></pre>
+<p>创建包裹函数 <code>bar</code>  传递 <code>this</code> 并返回返回值。</p>
+<p>创建一个更通用的辅助函数：</p>
+<pre><code class="javascript">function bind(fn, obj) {
+  return function(){
+    fn.apply(obj, arguments);
+  };
+}
+
+const obj = { a: 2 };
+function foo() {
+  console.log(this.a);
+}
+const bar = bind(foo, obj);
+bar(); // 2
+</code></pre>
+<p>ES5 提供了内置的 <code>Function.prototype.bind</code>，参考 <code>bind</code> 的 API 思考如何自己实现。</p>
+<p><strong>new</strong></p>
+<p>new 绑定看起来很正常很简单，如下：</p>
+<pre><code class="javascript">function Foo(a) {
+  this.a = a;
+}
+const foo = new Foo(2);
+foo.a(); // 2
+</code></pre>
+<p>JavaScript 中的 <code>new</code> 和传统的构造函数有所区别，小心这个误区。</p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数最为简单，this 与当前函数无关，继承外层函数调用的 <code>this</code>。</p>
+<blockquote>
+<p>今年面试的时候，有个面试官问我在 <code>setTimeout</code> 中的 <code>this</code> 是指向谁，我说这都是不变的，永远和外层一样；他说，不对，是  <code>window</code>，<code>setTimeout</code> 中的函数执行时，上下文环境已经是全局对象了。看起来似乎很有道理，但是可能这位大佬太过自负自己曾经的理解，希望大家不要被误解。</p>
+</blockquote>
+<pre><code class="javascript">function() {
+  setTimeout(() =&gt; {
+    console.log(this);
+  });
+}
+
+const obj = { a: 2 };
+foo.call(obj); // 2
+</code></pre>
+<h2 id="this-的本质"><a href="#this-的本质" class="headerlink" title="this 的本质"></a>this 的本质</h2><p>上面的总结几乎包括了所有开发中 <code>this</code> 出现的场景，但经验性的总结似乎有总会有漏洞，所以还需要从深的层次去理解 this 的原理。看下面的列子：</p>
+<pre><code class="javascript">let obj, method;
+
+obj = {
+  go: function() { alert(this); }
+};
+
+obj.go();               // (1) [object Object]
+
+(obj.go)();             // (2) [object Object]
+
+(method = obj.go)();    // (3) undefined
+
+(obj.go || obj.stop)(); // (4) undefined
+</code></pre>
+<p>解释上面的列子前，再看隐式调用的例子：</p>
+<pre><code class="javascript">var a = 1;
+var obj = {
+  a: 2,
+  bar: function() {
+    console.log(this.a);
+  },
+};
+
+var bar = obj.bar;
+obj.bar(); // 2
+bar(); // 1
+</code></pre>
+<p>我们之前的解释说过，<code>obj.bar()</code> 和 <code>bar()</code> 是两种不同的调用方式，但是到底哪不同？在 js 中，方法与对象是独立存在的，对象的属性指向函数的引用，而这个函数也可以和其他对象关联，似乎都和 <code>this</code> 无关呀。真正的技巧在于 <code>.</code>， <code>obj.method</code> 返回的值并不是 <code>Function</code> 而是一个 <a href="https://tc39.github.io/ecma262/#sec-reference-specification-type" target="_blank" rel="noopener"></a><code>[Reference Type](https://tc39.github.io/ecma262/#sec-reference-specification-type)</code> <a href="https://tc39.github.io/ecma262/#sec-reference-specification-type" target="_blank" rel="noopener"></a>。</p>
+<p><code>Reference</code>  由三部分组成 <code>base</code>, <code>name</code> , <code>strict</code>：</p>
+<ul>
+<li>base：The base value component is either <strong>undefined</strong>, an Object, a Boolean, a String, a Symbol, a Number, or an <a href="https://tc39.github.io/ecma262/#sec-environment-records" target="_blank" rel="noopener">Environment Record</a>. A base value component of <strong>undefined</strong> indicates that the Reference could not be resolved to a binding.</li>
+<li>name：The referenced name component is a String or Symbol value.</li>
+<li>strict：Boolean-valued strict reference flag</li>
+</ul>
+<p><code>obj.bar</code>  返回的就是 <code>(obj,</code> <code>&#39;``bar``&#39;``, false)</code> 。</p>
+<p>当一个 <code>Reference</code> 后跟 <code>()</code>，<code>Refefrence</code> 的信息被传递下去， <code>this</code>  这时候等于 <code>base</code>；而其他情况，<code>Reference</code> 的信息将被丢弃，仅仅传递函数的值（引用），导致 <code>this</code> 丢失。</p>
+<blockquote>
+<p><code>obj[&#39;bar&#39;]()</code> 和  <code>obj.bar()</code> 相同</p>
+</blockquote>
+<p>最后，希望你真的能想清楚 <code>(obj.go)()</code> 为何是输出是 2，这是一道难倒了许多高手（一位腾讯前端，一位迅雷资深前端）的题目。</p>
+<blockquote>
+<p>如果谈 this 的实践，还应该详细讲解 react constructor 中 this 的绑定，很长时间我对这个地方的理解有误，但为了便于各个笔记间的独立，这部分留在 react 的系列进行讲解。</p>
+</blockquote>
+
+  </article>
+    
+  </div>
+</div>
+
+    <footer class="main-footer">
+  <div class="container">
+    © 2018 
+  </div>
+</footer>
+    
+
+
+
+<script src="/./runtime.32f029.js"></script><script src="/./vendor.ec1199.js"></script><script src="/./app.5ed5af.js"></script>
+
+
+  </body>
+</html>
